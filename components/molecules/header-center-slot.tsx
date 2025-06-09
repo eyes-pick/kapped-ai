@@ -1,6 +1,9 @@
 "use client";
 import { MessageCircle, Github, Database } from "lucide-react";
 
+/**
+ * Slot for center-aligned header content.
+ */
 export default function HeaderCenterSlot() {
   return (
     <div className="flex items-center gap-6 text-white">

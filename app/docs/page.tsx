@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { DocMarkdown } from "@/components/docs/doc-markdown";
+import { Card, CardContent } from "@/components/atoms/card";
+import { ScrollArea } from "@/components/atoms/scroll-area";
+import { Separator } from "@/components/atoms/separator";
+import { DocMarkdown } from "@/components/molecules/doc-markdown";
 
 const DOCS = [
   { title: "Key Features", file: "key-features.md" },

@@ -6,6 +6,10 @@ interface DocMarkdownProps {
   file: string;
 }
 
+/**
+ * Renders sanitized Markdown from a docs file.
+ * @param file Markdown filename relative to `/docs`.
+ */
 export function DocMarkdown({ file }: DocMarkdownProps) {
   const [html, setHtml] = useState("");
   useEffect(() => {

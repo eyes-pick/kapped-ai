@@ -1,0 +1,1 @@
+- refactor component hierarchy into atoms, molecules and organisms

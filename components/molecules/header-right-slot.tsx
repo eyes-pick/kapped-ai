@@ -3,6 +3,9 @@ import { useState } from "react";
 import { LayoutPanelTop, Code2 } from "lucide-react";
 import Link from "next/link";
 
+/**
+ * Right-aligned header utilities slot.
+ */
 export default function HeaderRightSlot() {
   const [showPreview, setShowPreview] = useState(true);
   return (

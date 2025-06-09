@@ -1,4 +1,6 @@
-// Simple SearchBar component
+/**
+ * Basic search input for server components.
+ */
 export default function ServerSearchBar() {
   return (
     <input
