@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url)),
       '@genr8/testing-sandbox': fileURLToPath(new URL('./__mocks__/genr8-testing-sandbox.ts', import.meta.url)),
+      '@organisms': fileURLToPath(new URL('./components/organisms', import.meta.url)),
     },
   },
   test: {

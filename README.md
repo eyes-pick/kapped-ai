@@ -15,3 +15,13 @@ Kapped is a browser-based AI execution sandbox and no-code platform. It empowers
 - [License](docs/license.md)
 
 For questions, support, or feature requests, please open an issue or contact the maintainers.
+
+## Sandbox Development
+
+Start both the Next.js and Vite development servers with:
+
+```bash
+npm run sandbox
+```
+
+This script launches Next.js on [http://localhost:3001](http://localhost:3001) and the Vite sandbox on [http://localhost:5173](http://localhost:5173).
