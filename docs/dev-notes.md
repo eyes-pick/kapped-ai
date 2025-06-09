@@ -36,7 +36,13 @@ Getting started is easy and exciting! Just follow these steps:
    ```powershell
    npm run dev
    ```
-4. **Environment Variables:**
+4. **Start the Sandbox Environment:**
+   Run Next.js and Vite together:
+   ```bash
+   pnpm sandbox
+   ```
+   Next.js listens on [http://localhost:3001](http://localhost:3001) and Vite on [http://localhost:5173](http://localhost:5173).
+5. **Environment Variables:**
    - Create a `.env.local` file in the root directory for any required environment variables.
    - Refer to `.env.example` if available.
 

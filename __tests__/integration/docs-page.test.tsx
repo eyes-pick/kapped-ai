@@ -10,9 +10,16 @@ vi.mock('@genr8/testing-sandbox', () => ({
   })),
 }));
 
+interface Sandbox {
+  load: (path: string) => Promise<{ container: HTMLElement }>;
+  close: () => void;
+}
+
 describe('Docs integration', () => {
   it('renders markdown inside sandbox', async () => {
+
     const sandbox = createSandbox();
+
     const { container } = await sandbox.load('/docs');
     await waitFor(() => expect(container.querySelector('.prose')).toBeInTheDocument());
   });
