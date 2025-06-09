@@ -3,4 +3,5 @@
 - refactor component hierarchy into atoms, molecules and organisms
 
 - feat: documentation sidebar auto-generates from markdown files
+- fix: correct docs-browser imports for new atom paths
 
