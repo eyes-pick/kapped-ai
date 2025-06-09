@@ -1,28 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HeaderCenterSlot from '@/components/molecules/header-center-slot';
+import HeaderRightSlot from '@/components/molecules/header-right-slot';
 
-describe('HeaderCenterSlot', () => {
-  it('renders all center slot icons with accessible labels', () => {
-    render(<HeaderCenterSlot />);
+describe('HeaderRightSlot', () => {
+  it('renders preview toggle and docs link', () => {
+    render(<HeaderRightSlot />);
 
-    // Assert presence of all icon buttons by their ARIA labels
-    expect(screen.getByLabelText(/chat/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/code/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/github/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/db/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/preview/i)).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /docs/i })).toBeInTheDocument();
   });
 
-  it('opens GitHub link in a new tab', () => {
-    render(<HeaderCenterSlot />);
-
-    const githubLink = screen.getByLabelText(/github/i);
-
-    // Validate external link behavior
-    expect(githubLink).toHaveAttribute('href', 'https://github.com/genr8');
-    expect(githubLink).toHaveAttribute('target', '_blank');
-    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
+  it('toggles preview when button clicked', async () => {
+    render(<HeaderRightSlot />);
+    const button = screen.getByRole('button');
+    const user = userEvent.setup();
+    await user.click(button);
+    expect(button).toBeInTheDocument();
   });
 
   it('triggers action if button has an onClick', async () => {

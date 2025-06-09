@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from 'next/server';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
@@ -36,7 +37,7 @@ function getMimeType(filePath: string): string {
  */
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { path?: string[] } }
+  { params }: { params: { path: string[] } },
 ) {
   const segments = params.path ?? ['index.html'];
   const filePath = join(baseDir, ...segments);

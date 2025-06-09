@@ -10,7 +10,8 @@ export default function HeaderRightSlot() {
   const [showPreview, setShowPreview] = useState(true);
   return (
     <div className="flex items-center gap-4">
-      <div
+      <button
+        aria-label="preview"
         className="cursor-pointer"
         onClick={() => setShowPreview(!showPreview)}
       >
@@ -22,10 +23,11 @@ export default function HeaderRightSlot() {
         ) : (
           <Code2 className="text-zinc-400 hover:text-zinc-300" size={20} />
         )}
-      </div>
+      </button>
       {/* Docs Button */}
       <Link
         href="/docs"
+        aria-label="docs"
         className="text-xs text-white bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded transition-colors duration-150 ml-2"
         style={{ fontSize: "12px", fontWeight: 500 }}
       >
