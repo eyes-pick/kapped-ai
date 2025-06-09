@@ -20,7 +20,12 @@
     "sandbox": "concurrently \"next dev -p 3001\" \"pnpm --prefix ./sandbox-vite dev\"",
     "typecheck": "tsc --noEmit",
     "setup:build": "npm run lint && npm run typecheck && npm run test && npm run build",
-    "setup:dev": "npm run lint && npm run typecheck && npm run test && npm run dev"
+    "setup:dev": "npm run lint && npm run typecheck && npm run test && npm run dev",
+    "setup:nolint": "npm run lint || true && npm run typecheck && vitest run && npm run dev",
+    "setup:full": "npm run format:check && npm run lint && npm run typecheck && vitest run && npm run build",
+    "setup:quick": "vitest run && npm run build",
+    "setup:ci": "npm run format:check && npm run lint && npm run typecheck && vitest run && npm run build",
+    "setup:dev:nolint": "npm run typecheck && vitest run && npm run dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.0",
