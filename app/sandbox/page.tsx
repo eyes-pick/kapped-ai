@@ -32,7 +32,7 @@ export default function SandboxPage() {
           >
             <Sidebar>
               {/* Chat UI goes here */}
-              <div className="h-full flex flex-col p-4">
+              <div className="h-full flex grid-col p-4">
                 <div className="font-bold text-lg mb-2 text-zinc-100">Chat</div>
                 {/* Chat messages and input */}
               </div>
