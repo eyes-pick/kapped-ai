@@ -1,45 +1,32 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@atoms/*": [
-        "components/atoms/*"
-      ],
-      "@molecules/*": [
-        "components/molecules/*"
-      ],
-      "@organisms/*": [
-        "components/organisms/*"
-      ],
-      "@genr8/testing-sandbox": [
-        "__mocks__/genr8-testing-sandbox"
-      ]
+      "@/*": ["./*"],
+      "@components/*": ["components/*"],
+      "@atoms/*": ["components/atoms/*"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms/*": ["components/organisms/*"],
+      "@genr8/testing-sandbox": ["__mocks__/genr8-testing-sandbox.d.ts"] // ✅ Resolved to match correct declaration file
     }
   },
   "include": [
@@ -49,7 +36,5 @@
     "**/*.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

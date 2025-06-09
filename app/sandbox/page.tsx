@@ -3,13 +3,18 @@ import HeaderLeftSlot from "@/components/molecules/header-left-slot";
 import HeaderCenterSlot from "@/components/molecules/header-center-slot";
 import HeaderRightSlot from "@/components/molecules/header-right-slot";
 import { SidebarProvider, Sidebar } from "@/components/organisms/sidebar";
+import { getSandboxUrl } from "@/lib/sandbox-url";
 import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
 } from "@/components/atoms/resizable";
 
+/**
+ * Sandbox UI embedding the Vite application.
+ */
 export default function SandboxPage() {
+  const iframeSrc = getSandboxUrl();
   return (
     <div className="flex flex-col h-screen w-screen bg-zinc-950">
       <HeaderShell
@@ -38,7 +43,7 @@ export default function SandboxPage() {
             <div className="h-full w-full flex items-center justify-center">
               <iframe
                 title="Sandboxed Vite App"
-                src="http://localhost:5173" // Point to your Vite app
+                src={iframeSrc}
                 sandbox="allow-scripts allow-same-origin"
                 className="w-full h-full border-0 rounded-lg shadow-xl bg-zinc-950"
                 style={{ minHeight: "80vh" }}

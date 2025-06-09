@@ -36,6 +36,16 @@ Welcome to the Kapped codebase! Here’s a quick guide to help new and beginner 
 - Use the provided PowerShell scripts (e.g., `run-client.ps1`, `test.ps1`, `lint.ps1`) for common tasks.
 - All markdown rendering and sidebar navigation is handled in `/app/docs/page.tsx` and `/components/docs/doc-markdown.tsx`.
 
+## Building `sandbox-vite`
+
+1. Navigate to the companion project:
+   ```bash
+   cd ../sandbox-vite
+   npm run build
+   ```
+   The static files will be output to `dist/`.
+2. Copy the contents of `dist/` into `public/sandbox/` of this repo so Next.js can serve them.
+
 ---
 
 If you have questions, check the README or ask a maintainer!
