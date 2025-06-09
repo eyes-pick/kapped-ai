@@ -1,21 +1,21 @@
-import { render } from '@testing-library/react';
-import { vi } from 'vitest';
-import SandboxPage from '@/app/sandbox/page';
-import { createSandbox } from '@genr8/testing-sandbox';
+import { render } from "@testing-library/react";
+import { vi } from "vitest";
+import SandboxPage from "@/app/sandbox/page";
+import { createSandbox } from "@genr8/testing-sandbox";
 
-vi.mock('@genr8/testing-sandbox', () => ({
+vi.mock("@genr8/testing-sandbox", () => ({
   createSandbox: vi.fn(() => ({
     load: vi.fn(async () => ({ container: render(<SandboxPage />).container })),
     close: vi.fn(),
   })),
 }));
 
-describe('Sandbox integration', () => {
-  it('uses built assets in production', async () => {
-    process.env.NODE_ENV = 'production';
+describe("Sandbox integration", () => {
+  it("uses built assets in production", async () => {
+    process.env.NODE_ENV = "production";
     const sandbox = createSandbox() as any;
-    const { container } = await sandbox.load('/sandbox');
-    const iframe = container.querySelector('iframe');
-    expect(iframe).toHaveAttribute('src', '/sandbox-vite/dist/index.html');
+    const { container } = await sandbox.load("/sandbox");
+    const iframe = container.querySelector("iframe");
+    expect(iframe).toHaveAttribute("src", "/sandbox-vite/dist/index.html");
   });
 });

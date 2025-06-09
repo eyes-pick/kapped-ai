@@ -1,11 +1,11 @@
-import path from 'path';
+import path from "path";
 
 // Dynamically import fs only on the server to avoid bundling it for the client
 async function loadFs() {
-  if (typeof process === 'undefined' || !process.versions?.node) {
-    return null as unknown as typeof import('fs').promises;
+  if (typeof process === "undefined" || !process.versions?.node) {
+    return null as unknown as typeof import("fs").promises;
   }
-  return eval('require')("fs").promises;
+  return eval("require")("fs").promises;
 }
 
 /**
@@ -20,18 +20,15 @@ async function loadFs() {
  * // [{ title: 'Getting Started', file: 'getting-started.md' }, ...]
  */
 export async function getDocs(): Promise<{ title: string; file: string }[]> {
-  const fs = await loadFs();
-  if (!fs) {
-    return [];
-  }
-  const docsDir = path.join(process.cwd(), 'docs');
+  const docsDir = path.join(process.cwd(), "docs");
   const files = await fs.readdir(docsDir);
-  const mdFiles = files.filter((f: string) => f.endsWith('.md'));
+  const mdFiles = files.filter((f) => f.endsWith(".md"));
   const docs = await Promise.all(
-    mdFiles.map(async (file: string) => {
-      const content = await fs.readFile(path.join(docsDir, file), 'utf8');
-      const firstLine = content.split('\n')[0];
-      const title = firstLine.replace(/^#\s*/, '').trim() || file.replace(/\.md$/, '');
+    mdFiles.map(async (file) => {
+      const content = await fs.readFile(path.join(docsDir, file), "utf8");
+      const firstLine = content.split("\n")[0];
+      const title =
+        firstLine.replace(/^#\s*/, "").trim() || file.replace(/\.md$/, "");
       return { title, file };
     })
   );

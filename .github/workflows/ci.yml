@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm lint
       - run: pnpm typecheck
@@ -28,4 +28,3 @@ jobs:
           name: sandbox-vite-dist
           path: sandbox-vite/dist
           if-no-files-found: error
-

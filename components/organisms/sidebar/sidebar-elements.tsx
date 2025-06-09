@@ -17,9 +17,9 @@ function SidebarInput({
       className={cn("bg-background h-8 w-full shadow-none", className)}
       {...props}
     />
-/**
- * Header section inside the sidebar.
- */
+    /**
+     * Header section inside the sidebar.
+     */
   );
 }
 
@@ -28,9 +28,9 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-header"
       data-sidebar="header"
-/**
- * Footer container within the sidebar.
- */
+      /**
+       * Footer container within the sidebar.
+       */
       className={cn("flex flex-col gap-2 p-2", className)}
       {...props}
     />
@@ -39,9 +39,9 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
 
 function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
-/**
- * Visual divider for sidebar content.
- */
+    /**
+     * Visual divider for sidebar content.
+     */
     <div
       data-slot="sidebar-footer"
       data-sidebar="footer"
@@ -53,9 +53,9 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 function SidebarSeparator({
   className,
-/**
- * Scrollable content area of the sidebar.
- */
+  /**
+   * Scrollable content area of the sidebar.
+   */
   ...props
 }: React.ComponentProps<typeof Separator>) {
   return (
@@ -82,4 +82,10 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-export { SidebarInput, SidebarHeader, SidebarFooter, SidebarSeparator, SidebarContent };
+export {
+  SidebarInput,
+  SidebarHeader,
+  SidebarFooter,
+  SidebarSeparator,
+  SidebarContent,
+};
