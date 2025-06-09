@@ -4,21 +4,21 @@ describe("getSandboxUrl", () => {
   const originalEnv = process.env.NODE_ENV;
 
   afterEach(() => {
-    (process.env as any).NODE_ENV = originalEnv;
+    process.env.NODE_ENV = originalEnv;
   });
 
   it("returns local server url in development", () => {
-    (process.env as any).NODE_ENV = "development";
+    process.env.NODE_ENV = "development";
     expect(getSandboxUrl()).toBe("http://localhost:5173");
   });
 
   it("returns dist path in production", () => {
-    (process.env as any).NODE_ENV = "production";
+    process.env.NODE_ENV = "production";
     expect(getSandboxUrl()).toBe("/sandbox-vite/dist/index.html");
   });
 
   it("defaults to local server for unknown env", () => {
-    (process.env as any).NODE_ENV = "staging";
+    process.env.NODE_ENV = "staging";
     expect(getSandboxUrl()).toBe("http://localhost:5173");
   });
 });
