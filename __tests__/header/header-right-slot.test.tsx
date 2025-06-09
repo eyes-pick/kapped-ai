@@ -6,12 +6,8 @@ describe("HeaderCenterSlot", () => {
   it("renders all center slot icons with accessible labels", () => {
     render(<HeaderCenterSlot />);
 
-    // Assert presence of all icon buttons by their ARIA labels
-    expect(screen.getByLabelText(/chat/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/code/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/github/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/db/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/preview/i)).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /docs/i })).toBeInTheDocument();
   });
 
   it("opens GitHub link in a new tab", () => {

@@ -1,5 +1,12 @@
-import { promises as fs } from "fs";
 import path from "path";
+
+// Dynamically import fs only on the server to avoid bundling it for the client
+async function loadFs() {
+  if (typeof process === "undefined" || !process.versions?.node) {
+    return null as unknown as typeof import("fs").promises;
+  }
+  return eval("require")("fs").promises;
+}
 
 /**
  * Reads all markdown files from the local `docs` directory. The first line of
@@ -23,7 +30,7 @@ export async function getDocs(): Promise<{ title: string; file: string }[]> {
       const title =
         firstLine.replace(/^#\s*/, "").trim() || file.replace(/\.md$/, "");
       return { title, file };
-    }),
+    })
   );
   return docs;
 }
