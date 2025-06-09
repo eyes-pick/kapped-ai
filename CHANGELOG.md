@@ -14,6 +14,7 @@
 - fix: correct docs-browser imports for new atom paths
 
 - fix: correct docs-browser imports for new atom paths
+- test: sandbox iframe integration for dev and prod
 
 - chore: update sandbox script to run Next.js on 3001 and Vite on 5173
 
