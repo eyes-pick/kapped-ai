@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- feat: add Vite sandbox scaffolding
 
 - migrate test suite to Vitest
 
