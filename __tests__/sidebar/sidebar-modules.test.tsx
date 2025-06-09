@@ -9,9 +9,9 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   useSidebar,
-} from '@organisms/sidebar';
+} from '@/components/organisms/sidebar'; // <-- Unified path after conflict resolution
 
-
+// ✅ Component wrapped in Sidebar context
 function Wrapper() {
   return (
     <SidebarProvider>
@@ -28,8 +28,10 @@ function Wrapper() {
   );
 }
 
+// 🧪 Sidebar integration tests
 describe('Sidebar modules', () => {
   beforeAll(() => {
+    // Mock window.matchMedia for Tailwind/Media Query compatibility
     window.matchMedia = vi.fn().mockReturnValue({
       matches: false,
       addListener: vi.fn(),
@@ -38,16 +40,19 @@ describe('Sidebar modules', () => {
       removeEventListener: vi.fn(),
     });
   });
+
   it('renders menu button inside provider', () => {
     render(<Wrapper />);
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Demo' })).toBeInTheDocument();
   });
 
   it('useSidebar throws outside provider', () => {
-    function Bad() {
-      useSidebar();
+    function BadComponent() {
+      useSidebar(); // 💥 Should throw since no provider is wrapped
       return null;
     }
-    expect(() => render(<Bad />)).toThrow();
+
+    // ⛔ Expect a rendering error
+    expect(() => render(<BadComponent />)).toThrowError(/SidebarProvider/);
   });
 });
