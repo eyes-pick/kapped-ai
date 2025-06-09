@@ -14,7 +14,7 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
   const [html, setHtml] = useState("");
   useEffect(() => {
     if (!file) return;
-    fetch(`/docs/${file}`)
+    fetch(`/docs/${encodeURIComponent(file)}`)
       .then((res) => {
         if (!res.ok) throw new Error("404");
         return res.text();

@@ -36,3 +36,19 @@ export async function getDocs(): Promise<{ title: string; file: string }[]> {
   );
   return docs;
 }
+
+/**
+ * Reads a single markdown file from the local `docs` directory.
+ *
+ * @param file Name of the markdown file to read.
+ * @returns Promise resolving to the file contents as a string.
+ */
+export async function getDoc(file: string): Promise<string> {
+  const fs = await loadFs();
+  if (!fs) throw new Error("File system module not available");
+  if (file.includes("..") || file.includes("/")) {
+    throw new Error("Invalid file path");
+  }
+  const docPath = path.join(process.cwd(), "docs", file);
+  return fs.readFile(docPath, "utf8");
+}

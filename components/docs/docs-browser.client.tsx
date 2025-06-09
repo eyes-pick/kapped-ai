@@ -8,7 +8,7 @@ import { DocMarkdown } from "@/components/molecules/doc-markdown";
 export interface DocItem {
   title: string;
   file: string;
-  content: string;
+  content?: string;
 }
 
 export interface DocsBrowserProps {
