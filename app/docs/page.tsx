@@ -1,13 +1,16 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-import { getDocs } from '@/lib/docs';
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { getDocs } from "@/lib/docs";
 
 // 🌐 Dynamically import the browser-only Docs viewer
-const DocsBrowser = dynamic(() => import('@/components/docs/docs-browser.client'), {
-  ssr: false,
-});
+const DocsBrowser = dynamic(
+  () => import("@/components/docs/docs-browser.client"),
+  {
+    ssr: false,
+  },
+);
 
 export default function DocsIndexPage() {
   const [docs, setDocs] = useState<Array<{ title: string; file: string }>>([]);

@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
 /**
  * Reads all markdown files from the local `docs` directory. The first line of
@@ -13,16 +13,17 @@ import path from 'path';
  * // [{ title: 'Getting Started', file: 'getting-started.md' }, ...]
  */
 export async function getDocs(): Promise<{ title: string; file: string }[]> {
-  const docsDir = path.join(process.cwd(), 'docs');
+  const docsDir = path.join(process.cwd(), "docs");
   const files = await fs.readdir(docsDir);
-  const mdFiles = files.filter((f) => f.endsWith('.md'));
+  const mdFiles = files.filter((f) => f.endsWith(".md"));
   const docs = await Promise.all(
     mdFiles.map(async (file) => {
-      const content = await fs.readFile(path.join(docsDir, file), 'utf8');
-      const firstLine = content.split('\n')[0];
-      const title = firstLine.replace(/^#\s*/, '').trim() || file.replace(/\.md$/, '');
+      const content = await fs.readFile(path.join(docsDir, file), "utf8");
+      const firstLine = content.split("\n")[0];
+      const title =
+        firstLine.replace(/^#\s*/, "").trim() || file.replace(/\.md$/, "");
       return { title, file };
-    })
+    }),
   );
   return docs;
 }

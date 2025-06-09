@@ -1,6 +1,10 @@
 "use client";
 import { useSidebar } from "./sidebar-provider";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/atoms/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/atoms/tooltip";
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
@@ -17,9 +21,9 @@ function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
       className={cn("flex w-full min-w-0 flex-col gap-1", className)}
       {...props}
     />
-/**
- * Item wrapper inside a sidebar menu.
- */
+    /**
+     * Item wrapper inside a sidebar menu.
+     */
   );
 }
 function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
@@ -48,9 +52,9 @@ const sidebarMenuButtonVariants = cva(
       },
     },
     defaultVariants: {
-/**
- * Interactive menu button with optional tooltip.
- */
+      /**
+       * Interactive menu button with optional tooltip.
+       */
       variant: "default",
       size: "default",
     },
@@ -93,9 +97,9 @@ function SidebarMenuButton({
     <Tooltip>
       <TooltipTrigger asChild>{button}</TooltipTrigger>
       <TooltipContent
-/**
- * Small action button within a menu item.
- */
+        /**
+         * Small action button within a menu item.
+         */
         side="right"
         align="center"
         hidden={state !== "collapsed" || isMobile}
@@ -123,9 +127,9 @@ function SidebarMenuAction({
         // Increases the hit area of the button on mobile.
         "after:absolute after:-inset-2 md:after:hidden",
         "peer-data-[size=sm]/menu-button:top-1",
-/**
- * Badge positioned on the menu button.
- */
+        /**
+         * Badge positioned on the menu button.
+         */
         "peer-data-[size=default]/menu-button:top-1.5",
         "peer-data-[size=lg]/menu-button:top-2.5",
         "group-data-[collapsible=icon]:hidden",
@@ -144,9 +148,9 @@ function SidebarMenuBadge({
   return (
     <div
       data-slot="sidebar-menu-badge"
-/**
- * Placeholder skeleton used while loading menu items.
- */
+      /**
+       * Placeholder skeleton used while loading menu items.
+       */
       data-sidebar="menu-badge"
       className={cn(
         "text-sidebar-foreground pointer-events-none absolute right-1 flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums select-none",
@@ -197,4 +201,11 @@ function SidebarMenuSkeleton({
     </div>
   );
 }
-export { SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarMenuAction, SidebarMenuBadge, SidebarMenuSkeleton };
+export {
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarMenuAction,
+  SidebarMenuBadge,
+  SidebarMenuSkeleton,
+};
