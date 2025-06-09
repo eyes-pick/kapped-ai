@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- chore: add CI workflow for sandbox-vite build
 
 - migrate test suite to Vitest
 
