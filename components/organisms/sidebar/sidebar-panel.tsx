@@ -1,11 +1,18 @@
 "use client";
+
 import * as React from "react";
 import { PanelLeftIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSidebar, SIDEBAR_WIDTH_MOBILE } from "./sidebar-provider";
 import { Button } from "@/components/atoms/button";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/atoms/sheet";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/atoms/sheet";
+
 /**
  * Sidebar container with responsive variants.
  */
@@ -72,7 +79,6 @@ function Sidebar({
       data-side={side}
       data-slot="sidebar"
     >
-      {/* This is what handles the sidebar gap on desktop */}
       <div
         data-slot="sidebar-gap"
         className={cn(
@@ -91,7 +97,6 @@ function Sidebar({
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
-          // Adjust the padding for floating and inset variants.
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
             : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
@@ -108,12 +113,12 @@ function Sidebar({
         </div>
       </div>
     </div>
-/**
- * Button that toggles sidebar visibility.
- */
   );
 }
 
+/**
+ * Button that toggles sidebar visibility.
+ */
 function SidebarTrigger({
   className,
   onClick,

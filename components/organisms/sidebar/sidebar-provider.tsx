@@ -10,7 +10,7 @@ import { TooltipProvider } from "@/components/atoms/tooltip";
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem"; // ✅ Merged in from codex branch
+const SIDEBAR_WIDTH_MOBILE = "18rem"; // ✅ Mobile-specific sidebar width
 const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
@@ -116,7 +116,7 @@ function SidebarProvider({
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH,
-              "--sidebar-width-mobile": SIDEBAR_WIDTH_MOBILE, // ✅ Include mobile width token
+              "--sidebar-width-mobile": SIDEBAR_WIDTH_MOBILE,
               "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
               ...style,
             } as React.CSSProperties

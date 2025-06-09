@@ -21,6 +21,7 @@ global.fetch = vi.fn(() =>
 vi.mock('@genr8/testing-sandbox', () => ({
   createSandbox: vi.fn(() => ({
     load: vi.fn(async () => {
+      // Simulate rendered output with prose class for markdown
       const DocsComponent = await require('../../components/docs/docs-browser.client.tsx').default();
       const { container } = render(DocsComponent);
       return { container };
@@ -31,7 +32,7 @@ vi.mock('@genr8/testing-sandbox', () => ({
 
 describe('Docs integration', () => {
   it('renders markdown inside sandbox', async () => {
-    const sandbox = createSandbox(); // Unified usage of mock version
+    const sandbox = createSandbox();
     const { container } = await sandbox.load('/docs');
 
     await waitFor(() => {

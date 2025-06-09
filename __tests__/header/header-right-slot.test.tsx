@@ -40,5 +40,6 @@ describe('HeaderCenterSlot', () => {
     await user.click(screen.getByLabelText('custom'));
 
     expect(mockAction).toHaveBeenCalled(); // Verify callback fired
+
   });
 });
