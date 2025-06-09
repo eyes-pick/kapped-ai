@@ -9,6 +9,7 @@ Kapped is a browser-based AI execution sandbox and no-code platform. It empowers
 - [Getting Started](docs/getting-started.md)
 - [User Guide](docs/user-guide.md)
 - [Developer Notes](docs/dev-notes.md)
+- [UI/UX Development Pipeline](docs/uiux-pipeline.md)
 - [Project Tasks & Roadmap](docs/tasks.md)
 - [Example Use Cases](docs/use-cases.md)
 - [Contributing](docs/contributing.md)
