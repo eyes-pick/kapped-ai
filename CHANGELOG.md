@@ -16,4 +16,6 @@
 - 
 - chore: add sandbox-vite Vite playground
 
+- docs: add sandbox server and build steps
+
 
