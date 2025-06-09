@@ -18,7 +18,9 @@
     "update": "npm update",
     "clear:prompt": "npx tsx scripts/clear-prompt.ts",
     "sandbox": "concurrently \"next dev -p 3001\" \"pnpm --prefix ./sandbox-vite dev\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "setup:build": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "setup:dev": "npm run lint && npm run typecheck && npm run test && npm run dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.0",
