@@ -1,12 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getDoc } from "@/lib/docs";
 
 export async function GET(
-  _request: Request,
-  { params }: { params: { file: string } }
+  _request: NextRequest,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  context: any
 ) {
   try {
-    const content = await getDoc(params.file);
+    const param = context.params.file;
+    const file = Array.isArray(param) ? param[0] : param;
+    const content = await getDoc(file);
     return new NextResponse(content, {
       headers: { "Content-Type": "text/markdown; charset=utf-8" },
     });

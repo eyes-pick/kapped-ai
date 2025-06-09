@@ -12,7 +12,7 @@ vi.mock("@genr8/testing-sandbox", () => ({
 
 describe("Sandbox integration", () => {
   it("uses built assets in production", async () => {
-    (process.env as any).NODE_ENV = "production";
+    (process.env as unknown as Record<string, string>).NODE_ENV = "production";
     const sandbox = createSandbox();
     const { container } = await sandbox.load("/sandbox");
     const iframe = container.querySelector("iframe");

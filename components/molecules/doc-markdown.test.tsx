@@ -6,6 +6,7 @@ import { vi } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
 import { GET as docRoute } from "@/app/docs/[file]/route";
+import { NextRequest } from "next/server";
 
 // 🧪 Mock global fetch
 global.fetch = vi.fn();
@@ -58,7 +59,7 @@ describe("DocMarkdown", () => {
 
     vi.mocked(global.fetch).mockImplementationOnce(() =>
       Promise.resolve(
-        docRoute(new Request("http://localhost"), {
+        docRoute(new NextRequest("http://localhost"), {
           params: { file: "route-test.md" },
         }),
       ),
