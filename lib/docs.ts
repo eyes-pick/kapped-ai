@@ -20,11 +20,13 @@ async function loadFs() {
  * // [{ title: 'Getting Started', file: 'getting-started.md' }, ...]
  */
 export async function getDocs(): Promise<{ title: string; file: string }[]> {
+  const fs = await loadFs();
+  if (!fs) throw new Error("File system module not available");
   const docsDir = path.join(process.cwd(), "docs");
   const files = await fs.readdir(docsDir);
-  const mdFiles = files.filter((f) => f.endsWith(".md"));
+  const mdFiles = files.filter((f: string) => f.endsWith(".md"));
   const docs = await Promise.all(
-    mdFiles.map(async (file) => {
+    mdFiles.map(async (file: string) => {
       const content = await fs.readFile(path.join(docsDir, file), "utf8");
       const firstLine = content.split("\n")[0];
       const title =

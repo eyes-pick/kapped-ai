@@ -1,4 +1,5 @@
 import { render, waitFor } from "@testing-library/react";
+import React from "react";
 import { vi } from "vitest";
 import { createSandbox } from "@genr8/testing-sandbox";
 
@@ -9,8 +10,8 @@ vi.mock("@/lib/docs", () => ({
 
 // 🧪 Mock dynamic import for SSR compatibility
 vi.mock("next/dynamic", () => ({
-  default: () =>
-    require("../../components/docs/docs-browser.client.tsx").default,
+  default: async () =>
+    (await import("../../components/docs/docs-browser.client")).default,
 }));
 
 // 🧪 Mock fetch for markdown
@@ -22,8 +23,8 @@ vi.mock("@genr8/testing-sandbox", () => ({
     load: vi.fn(async () => {
       // Simulate rendered output with prose class for markdown
       const DocsComponent =
-        await require("../../components/docs/docs-browser.client.tsx").default();
-      const { container } = render(DocsComponent);
+        (await import("../../components/docs/docs-browser.client")).default;
+      const { container } = render(<DocsComponent docs={[{ title: "Test", file: "test.md" }]} />);
       return { container };
     }),
     close: vi.fn(),

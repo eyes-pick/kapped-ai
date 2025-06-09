@@ -6,8 +6,8 @@ describe("HeaderCenterSlot", () => {
   it("renders all center slot icons with accessible labels", () => {
     render(<HeaderCenterSlot />);
 
-    expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /docs/i })).toBeInTheDocument();
+    expect(screen.getByLabelText('chat')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /github/i })).toBeInTheDocument();
   });
 
   it("opens GitHub link in a new tab", () => {
