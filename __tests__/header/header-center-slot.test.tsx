@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import HeaderCenterSlot from '@/components/header/header-center-slot';
+import HeaderCenterSlot from '@/components/molecules/header-center-slot';
 
 describe('HeaderCenterSlot', () => {
   it('renders three icons', () => {

@@ -9,7 +9,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   useSidebar,
-} from '@/components/ui/sidebar';
+} from '@/components/organisms/sidebar';
 
 function Wrapper() {
   return (
