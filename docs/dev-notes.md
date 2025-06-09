@@ -70,10 +70,10 @@ Kapped leverages the best modern web technologies:
 ## Testing
 
 - Add and run unit tests for all new features and bug fixes.
-- Use the project’s preferred testing frameworks (e.g., Jest, React Testing Library).
+- Use **Vitest** with **React Testing Library** for fast and reliable feedback.
 - Run tests locally before pushing changes:
-  ```powershell
-  npm test
+  ```bash
+  pnpm test && pnpm lint && pnpm typecheck
   ```
 
 ## Code Quality

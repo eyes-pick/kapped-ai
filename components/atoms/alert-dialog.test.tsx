@@ -68,7 +68,7 @@ describe('AlertDialog', () => {
 
     it('calls onAction when action button is clicked', async () => {
         const user = userEvent.setup()
-        const handleAction = jest.fn()
+        const handleAction = vi.fn()
 
         render(
             <AlertDialog>

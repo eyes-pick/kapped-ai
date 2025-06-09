@@ -1,25 +1,25 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom'
 import { DocMarkdown } from './doc-markdown'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
+import { vi, MockInstance } from 'vitest'
 
 // Mock the fetch function
-global.fetch = jest.fn()
+global.fetch = vi.fn()
 
 // Mock the marked and DOMPurify libraries
-jest.mock('marked', () => ({
-    parse: jest.fn()
+vi.mock('marked', () => ({
+    marked: { parse: vi.fn() }
 }))
 
-jest.mock('dompurify', () => ({
-    sanitize: jest.fn()
+vi.mock('dompurify', () => ({
+    default: { sanitize: vi.fn() }
 }))
 
 describe('DocMarkdown', () => {
     beforeEach(() => {
         // Clear all mocks before each test
-        jest.clearAllMocks()
+        vi.clearAllMocks()
     })
 
     it('renders markdown content successfully', async () => {
@@ -28,16 +28,16 @@ describe('DocMarkdown', () => {
         const mockSanitizedHtml = '<h1>Hello World</h1>'
 
             // Mock fetch response
-            ; (global.fetch as jest.Mock).mockResolvedValueOnce({
+            ; (global.fetch as unknown as MockInstance).mockResolvedValueOnce({
                 ok: true,
                 text: () => Promise.resolve(mockMarkdown),
             })
             // Mock marked parse
-            ; ((marked.parse as unknown) as jest.Mock).mockResolvedValueOnce(mockParsedHtml)
-            ; ((marked.parse as unknown) as jest.Mock).mockResolvedValueOnce(mockParsedHtml)
+            ; ((marked.parse as unknown as MockInstance)).mockResolvedValueOnce(mockParsedHtml)
+            ; ((marked.parse as unknown as MockInstance)).mockResolvedValueOnce(mockParsedHtml)
 
             // Mock DOMPurify sanitize
-            ; (DOMPurify.sanitize as jest.Mock).mockReturnValueOnce(mockSanitizedHtml)
+            ; (DOMPurify.sanitize as unknown as MockInstance).mockReturnValueOnce(mockSanitizedHtml)
 
         render(<DocMarkdown file="test.md" />)
 
@@ -53,7 +53,7 @@ describe('DocMarkdown', () => {
 
     it('handles fetch error gracefully', async () => {
         // Mock fetch error
-        ; (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('404'))
+        ; (global.fetch as unknown as MockInstance).mockRejectedValueOnce(new Error('404'))
 
         render(<DocMarkdown file="nonexistent.md" />)
 
@@ -76,7 +76,7 @@ describe('DocMarkdown', () => {
 
     it('handles non-ok fetch response', async () => {
         // Mock non-ok fetch response
-        ; (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ; (global.fetch as unknown as MockInstance).mockResolvedValueOnce({
             ok: false,
             status: 404,
         })
