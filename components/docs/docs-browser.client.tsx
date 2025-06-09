@@ -6,9 +6,15 @@ import { Separator } from "@/components/atoms/separator";
 import { DocMarkdown } from "@/components/molecules/doc-markdown";
 import type { getDocs } from "@/lib/docs";
 
+export interface DocItem {
+  title: string;
+  file: string;
+  content: string;
+}
+
 export interface DocsBrowserProps {
   /** List of docs returned from `getDocs`. */
-  docs: Awaited<ReturnType<typeof getDocs>>;
+  docs: DocItem[];
 }
 
 /**
@@ -17,6 +23,7 @@ export interface DocsBrowserProps {
  */
 export default function DocsBrowser({ docs }: DocsBrowserProps) {
   const [selected, setSelected] = useState(docs[0]?.file ?? "");
+  const selectedDoc = docs.find((doc) => doc.file === selected);
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex">
       <div className="w-64 bg-zinc-900 border-r border-zinc-800 flex flex-col py-8 px-0 min-h-screen">
@@ -52,7 +59,9 @@ export default function DocsBrowser({ docs }: DocsBrowserProps) {
             </h1>
             <Separator className="mb-6 bg-zinc-800" />
             <div className="bg-zinc-950 rounded-lg p-6 min-h-[400px] border border-zinc-800">
-              <DocMarkdown file={selected} />
+              <DocMarkdown>
+                {selectedDoc?.content ?? ""}
+              </DocMarkdown>
             </div>
           </CardContent>
         </Card>
