@@ -23,6 +23,7 @@
       }
     ],
     "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
@@ -35,6 +36,9 @@
       ],
       "@organisms/*": [
         "components/organisms/*"
+      ],
+      "@genr8/testing-sandbox": [
+        "__mocks__/genr8-testing-sandbox.d.ts"
       ]
     }
   },
