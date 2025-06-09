@@ -12,21 +12,27 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "baseUrl": ".",
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@components/*": [
+        "components/*"
       ],
       "@atoms/*": [
         "components/atoms/*"
