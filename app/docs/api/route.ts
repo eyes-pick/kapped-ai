@@ -5,9 +5,8 @@ export async function GET() {
   try {
     const docs = await getDocs();
     return NextResponse.json(docs);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to load docs" }, { status: 500 });
   }
 }
 
-export { GET };

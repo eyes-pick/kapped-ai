@@ -12,8 +12,8 @@ vi.mock("@genr8/testing-sandbox", () => ({
 
 describe("Sandbox integration", () => {
   it("uses built assets in production", async () => {
-    process.env.NODE_ENV = "production";
-    const sandbox = createSandbox() as any;
+    (process.env as any).NODE_ENV = "production";
+    const sandbox = createSandbox();
     const { container } = await sandbox.load("/sandbox");
     const iframe = container.querySelector("iframe");
     expect(iframe).toHaveAttribute("src", "/sandbox-vite/dist/index.html");

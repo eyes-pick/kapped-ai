@@ -16,7 +16,7 @@ vi.mock("@genr8/testing-sandbox", () => ({
 
 describe("Sandbox iframe integration", () => {
   it("renders iframe during dev", async () => {
-    const sandbox = createSandbox() as any;
+    const sandbox = createSandbox();
     const { container } = await sandbox.load("/sandbox");
     const iframe = container.querySelector("iframe");
     expect(iframe).toBeInTheDocument();
