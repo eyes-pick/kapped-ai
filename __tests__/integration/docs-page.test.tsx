@@ -1,7 +1,13 @@
-import { render } from '@testing-library/react';
+/// <reference path="../../__mocks__/genr8-testing-sandbox.d.ts" />
+import { render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import DocsIndexPage from '@/app/docs/page';
 import { createSandbox } from '@genr8/testing-sandbox';
+vi.mock('@/lib/docs', () => ({
+  getDocs: vi.fn(async () => [{ title: 'Test', file: 'test.md' }]),
+}));
+
+global.fetch = vi.fn(() => Promise.resolve(new Response('# Hello World')));
 
 vi.mock('@genr8/testing-sandbox', () => ({
   createSandbox: vi.fn(() => ({
@@ -12,8 +18,10 @@ vi.mock('@genr8/testing-sandbox', () => ({
 
 describe('Docs integration', () => {
   it('renders markdown inside sandbox', async () => {
-    const sandbox = createSandbox() as any;
+    const sandbox = createSandbox();
     const { container } = await sandbox.load('/docs');
-    expect(container.querySelector('.prose')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(container.querySelector('.prose')).toBeInTheDocument();
+    });
   });
 });

@@ -1,16 +1,16 @@
 "use client";
-import React, { useState } from "react";
-import { Card, CardContent } from "@/components/atoms/card";
-import { ScrollArea } from "@/components/atoms/scroll-area";
-import { Separator } from "@/components/atoms/separator";
-import { DocMarkdown } from "@/components/molecules/doc-markdown";
-import { getDocs } from '@/lib/docs';
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-
+import { getDocs } from '@/lib/docs';
 
 const DocsBrowser = dynamic(() => import('@/components/docs/docs-browser.client'));
 
-export default async function DocsIndexPage() {
-  const docs = await getDocs();
+export default function DocsIndexPage() {
+  const [docs, setDocs] = useState<Array<{ title: string; file: string }>>([]);
+
+  useEffect(() => {
+    getDocs().then(setDocs);
+  }, []);
+
   return <DocsBrowser docs={docs} />;
 }

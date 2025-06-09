@@ -21,7 +21,7 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
       })
       .then(async (md: string) => {
         const parsed = await marked.parse(md);
-        const sanitized = DOMPurify.sanitize(parsed as unknown as string);
+        const sanitized = DOMPurify.sanitize(parsed);
         setHtml(sanitized);
       })
       .catch(() => {
