@@ -1,10 +1,12 @@
-import { render } from '@testing-library/react';
-import HeaderRightSlot from '@molecules/header-right-slot';
+import { render, screen } from '@testing-library/react';
+import HeaderRightSlot from '@/components/molecules/header-right-slot';
 
 describe('HeaderRightSlot', () => {
-  it('shows docs link', () => {
+  it('renders a Docs link', () => {
     render(<HeaderRightSlot />);
-    const link = document.querySelector('a[href="/docs"]');
-    expect(link).toBeInTheDocument();
+    
+    const docsLink = screen.getByRole('link', { name: /docs/i });
+    expect(docsLink).toBeInTheDocument();
+    expect(docsLink).toHaveAttribute('href', '/docs');
   });
 });
