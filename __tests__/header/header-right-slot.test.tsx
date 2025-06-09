@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import HeaderRightSlot from '@/components/header/header-right-slot';
+import HeaderRightSlot from '@/components/molecules/header-right-slot';
 
 describe('HeaderRightSlot', () => {
   it('shows docs link', () => {

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HeaderLeftSlot from '@/components/header/header-left-slot';
+import HeaderLeftSlot from '@/components/molecules/header-left-slot';
 
 describe('HeaderLeftSlot', () => {
   it('toggles dropdown open and close', async () => {
