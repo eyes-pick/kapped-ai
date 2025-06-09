@@ -40,7 +40,7 @@ npm test
 If `lib/templates.json` exists, also validate it with:
 
 ```bash
-npx zod-cli validate lib/templates.json
+npm run validate:templates
 ```
 
 
