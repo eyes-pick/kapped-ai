@@ -21,7 +21,7 @@ Welcome to Kapped! We’re thrilled to have you join our community of innovators
 4. **Optional: Run the Sandbox**
    Launch Next.js and Vite together:
    ```bash
-   pnpm sandbox
+   npm run sandbox
    ```
    Next.js is available at `http://localhost:3001` and Vite at `http://localhost:5173`.
 5. **Access the Platform**

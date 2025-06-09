@@ -39,7 +39,7 @@ Getting started is easy and exciting! Just follow these steps:
 4. **Start the Sandbox Environment:**
    Run Next.js and Vite together:
    ```bash
-   pnpm sandbox
+   npm run sandbox
    ```
    Next.js listens on [http://localhost:3001](http://localhost:3001) and Vite on [http://localhost:5173](http://localhost:5173).
 5. **Environment Variables:**
@@ -79,7 +79,7 @@ Kapped leverages the best modern web technologies:
 - Use **Vitest** with **React Testing Library** for fast and reliable feedback.
 - Run tests locally before pushing changes:
   ```bash
-  pnpm test && pnpm lint && pnpm typecheck
+  npm test && npm run lint && npm run typecheck
   ```
 
 ## Code Quality
