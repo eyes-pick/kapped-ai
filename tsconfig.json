@@ -17,6 +17,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
@@ -35,6 +36,9 @@
       ],
       "@organisms/*": [
         "components/organisms/*"
+      ],
+      "@genr8/testing-sandbox": [
+        "__mocks__/genr8-testing-sandbox"
       ]
     }
   },
@@ -42,6 +46,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.d.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [

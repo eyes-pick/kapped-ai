@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { DocMarkdown } from './doc-markdown'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
-import { vi, MockInstance } from 'vitest'
+import { vi } from 'vitest'
 
 // Mock the fetch function
 global.fetch = vi.fn()
@@ -28,16 +28,15 @@ describe('DocMarkdown', () => {
         const mockSanitizedHtml = '<h1>Hello World</h1>'
 
             // Mock fetch response
-            ; (global.fetch as unknown as MockInstance).mockResolvedValueOnce({
-                ok: true,
-                text: () => Promise.resolve(mockMarkdown),
-            })
+            vi.mocked(global.fetch).mockResolvedValueOnce(
+                new Response(mockMarkdown, { status: 200 })
+            )
             // Mock marked parse
-            ; ((marked.parse as unknown as MockInstance)).mockResolvedValueOnce(mockParsedHtml)
-            ; ((marked.parse as unknown as MockInstance)).mockResolvedValueOnce(mockParsedHtml)
+            vi.mocked(marked.parse).mockResolvedValueOnce(mockParsedHtml)
+            vi.mocked(marked.parse).mockResolvedValueOnce(mockParsedHtml)
 
             // Mock DOMPurify sanitize
-            ; (DOMPurify.sanitize as unknown as MockInstance).mockReturnValueOnce(mockSanitizedHtml)
+            vi.mocked(DOMPurify.sanitize).mockReturnValueOnce(mockSanitizedHtml)
 
         render(<DocMarkdown file="test.md" />)
 
@@ -53,7 +52,7 @@ describe('DocMarkdown', () => {
 
     it('handles fetch error gracefully', async () => {
         // Mock fetch error
-        ; (global.fetch as unknown as MockInstance).mockRejectedValueOnce(new Error('404'))
+        vi.mocked(global.fetch).mockRejectedValueOnce(new Error('404'))
 
         render(<DocMarkdown file="nonexistent.md" />)
 
@@ -76,10 +75,9 @@ describe('DocMarkdown', () => {
 
     it('handles non-ok fetch response', async () => {
         // Mock non-ok fetch response
-        ; (global.fetch as unknown as MockInstance).mockResolvedValueOnce({
-            ok: false,
-            status: 404,
-        })
+        vi.mocked(global.fetch).mockResolvedValueOnce(
+            new Response(null, { status: 404 })
+        )
 
         render(<DocMarkdown file="missing.md" />)
 
