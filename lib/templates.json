@@ -1,0 +1,11 @@
+[
+  {
+    "id": "nextjs-developer",
+    "name": "Next.js Developer Capsule",
+    "entry": "app.ts",
+    "port": 3000,
+    "runtime": "nodejs",
+    "dockerImage": "e2b/nextjs:latest",
+    "features": ["typescript", "live reload"]
+  }
+]
