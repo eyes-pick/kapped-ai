@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/atoms/card";
 import { ScrollArea } from "@/components/atoms/scroll-area";
 import { Separator } from "@/components/atoms/separator";
 import { DocMarkdown } from "@/components/molecules/doc-markdown";
-import type { getDocs } from "@/lib/docs";
 
 export interface DocItem {
   title: string;
@@ -59,9 +58,7 @@ export default function DocsBrowser({ docs }: DocsBrowserProps) {
             </h1>
             <Separator className="mb-6 bg-zinc-800" />
             <div className="bg-zinc-950 rounded-lg p-6 min-h-[400px] border border-zinc-800">
-              <DocMarkdown>
-                {selectedDoc?.content ?? ""}
-              </DocMarkdown>
+              <DocMarkdown file={selectedDoc?.file ?? ""} />
             </div>
           </CardContent>
         </Card>
