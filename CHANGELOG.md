@@ -10,4 +10,6 @@
 
 - fix: correct docs-browser imports for new atom paths
 
+- docs: add sandbox server and build steps
+
 
