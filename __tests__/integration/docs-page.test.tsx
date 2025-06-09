@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { createSandbox as originalCreateSandbox } from '@genr8/testing-sandbox';
+import { createSandbox } from '@genr8/testing-sandbox';
 
 // 🧪 Mock docs lib
 vi.mock('@/lib/docs', () => ({
@@ -31,7 +31,7 @@ vi.mock('@genr8/testing-sandbox', () => ({
 
 describe('Docs integration', () => {
   it('renders markdown inside sandbox', async () => {
-    const sandbox = originalCreateSandbox();
+    const sandbox = createSandbox(); // Unified usage of mock version
     const { container } = await sandbox.load('/docs');
 
     await waitFor(() => {

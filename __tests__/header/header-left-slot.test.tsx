@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HeaderLeftSlot from '@/components/molecules/header-left-slot'; // ✅ Resolved import path
+import HeaderLeftSlot from '@/components/molecules/header-left-slot';
 
 describe('HeaderLeftSlot', () => {
   it('toggles dropdown open and closed via button and Escape key', async () => {

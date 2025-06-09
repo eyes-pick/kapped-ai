@@ -66,3 +66,12 @@ describe('Sidebar modules', () => {
     console.error = ConsoleError; // Restore logging
   });
 });
+
+      useSidebar(); // ❌ Incorrect usage
+      return <div>Invalid</div>;
+    };
+
+    expect(() => render(<BadComponent />)).toThrowError(/SidebarProvider/);
+    console.error = ConsoleError; // Restore logging
+  });
+});

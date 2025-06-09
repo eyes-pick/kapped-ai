@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { getDocs } from '@/lib/docs';
 
-// Dynamically import the browser-only Docs viewer
+// 🌐 Dynamically import the browser-only Docs viewer
 const DocsBrowser = dynamic(() => import('@/components/docs/docs-browser.client'), {
   ssr: false, // Ensures this runs only on the client
 });
