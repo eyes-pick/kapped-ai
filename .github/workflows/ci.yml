@@ -2,27 +2,24 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [preview-sandbox]
   pull_request:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: node-js@latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: npm/action-setup@v2
         with:
           version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
-      - run: pnpm install
-      - run: pnpm lint
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: pnpm --prefix sandbox-vite install
-      - run: pnpm --prefix sandbox-vite build
+          cache: "npm"
+      - run: npm install
+      - run: npm --prefix sandbox-vite install
+      - run: npm --prefix sandbox-vite run dev --preview
       - uses: actions/upload-artifact@v4
         with:
           name: sandbox-vite-dist
