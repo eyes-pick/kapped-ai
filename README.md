@@ -26,3 +26,21 @@ npm run sandbox
 ```
 
 This script launches Next.js on [http://localhost:3001](http://localhost:3001) and the Vite sandbox on [http://localhost:5173](http://localhost:5173).
+
+## Verification Checks
+
+Before submitting a pull request, run these commands to catch build errors and bugs:
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+```
+
+If `lib/templates.json` exists, also validate it with:
+
+```bash
+npx zod-cli validate lib/templates.json
+```
+
+
