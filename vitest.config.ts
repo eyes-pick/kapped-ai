@@ -7,8 +7,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url)),
-      '@genr8/testing-sandbox': fileURLToPath(new URL('./__mocks__/genr8-testing-sandbox.ts', import.meta.url)),
+      '@components': fileURLToPath(new URL('./components', import.meta.url)),
+      '@atoms': fileURLToPath(new URL('./components/atoms', import.meta.url)),
+      '@molecules': fileURLToPath(new URL('./components/molecules', import.meta.url)),
       '@organisms': fileURLToPath(new URL('./components/organisms', import.meta.url)),
+      '@genr8/testing-sandbox': fileURLToPath(new URL('./__mocks__/genr8-testing-sandbox.ts', import.meta.url)),
     },
   },
   test: {
@@ -16,7 +19,7 @@ export default defineConfig({
     setupFiles: './vitest.setup.ts',
     globals: true,
     coverage: {
-      reporter: ['text', 'html', 'json']
-    }
-  }
+      reporter: ['text', 'html', 'json'],
+    },
+  },
 });
