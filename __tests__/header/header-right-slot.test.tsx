@@ -1,42 +1,29 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import HeaderCenterSlot from "@/components/molecules/header-center-slot";
+import HeaderRightSlot from "@/components/molecules/header-right-slot";
 
-describe("HeaderCenterSlot", () => {
-  it("renders all center slot icons with accessible labels", () => {
-    render(<HeaderCenterSlot />);
-
-    expect(screen.getByLabelText('chat')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /github/i })).toBeInTheDocument();
-  });
-
-  it("opens GitHub link in a new tab", () => {
-    render(<HeaderCenterSlot />);
-
-    const githubLink = screen.getByLabelText(/github/i);
-
-    // Validate external link behavior
-    expect(githubLink).toHaveAttribute("href", "https://github.com/genr8");
-    expect(githubLink).toHaveAttribute("target", "_blank");
-    expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
-  });
-
-  it("triggers action if button has an onClick", async () => {
-    const mockAction = vi.fn(); // Using Vitest mock function
-
-    const CustomSlot = () => (
-      <div>
-        <button aria-label="custom" onClick={mockAction}>
-          X
-        </button>
-      </div>
-    );
-
+describe("HeaderRightSlot", () => {
+  it("toggles preview icon on click", async () => {
     const user = userEvent.setup();
-    render(<CustomSlot />);
+    render(<HeaderRightSlot />);
 
-    await user.click(screen.getByLabelText("custom"));
+    const toggleButton = screen.getByLabelText(/preview/i);
+    // Initial state should show layout icon
+    expect(
+      document.querySelector("svg.lucide-layout-panel-top")
+    ).toBeInTheDocument();
 
-    expect(mockAction).toHaveBeenCalled(); // Verify callback fired
+    await user.click(toggleButton);
+
+    // After click, code icon should appear and layout icon disappear
+    expect(document.querySelector("svg.lucide-layout-panel-top")).not.toBeInTheDocument();
+    expect(document.querySelector("svg.lucide-code-xml")).toBeInTheDocument();
+  });
+
+  it("links to the Docs page", () => {
+    render(<HeaderRightSlot />);
+
+    const docsLink = screen.getByRole("link", { name: /docs/i });
+    expect(docsLink).toHaveAttribute("href", "/docs");
   });
 });
