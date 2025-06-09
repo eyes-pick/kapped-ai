@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { useSidebar } from "./sidebar-provider";
 import { Button } from "@/components/atoms/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/atoms/sheet";
-
 const SIDEBAR_WIDTH_MOBILE = "18rem";
 /**
  * Sidebar container with responsive variants.
