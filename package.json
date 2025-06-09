@@ -17,7 +17,7 @@
     "clean": "rimraf ./node_modules ./package-lock.json ./.next",
     "update": "npm update",
     "clear:prompt": "npx tsx scripts/clear-prompt.ts",
-    "sandbox": "next dev -p 3001 && cd ../sandbox-vite && vite dev",
+    "sandbox": "concurrently \"next dev -p 3001\" \"pnpm --prefix ./sandbox-vite dev\"",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

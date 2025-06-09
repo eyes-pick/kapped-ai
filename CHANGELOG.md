@@ -13,9 +13,9 @@
 - feat: documentation sidebar auto-generates from markdown files
 
 - fix: correct docs-browser imports for new atom paths
-- 
+
+- chore: update sandbox script to run Next.js on 3001 and Vite on 5173
+
 - chore: add sandbox-vite Vite playground
 
 - docs: add sandbox server and build steps
-
-
