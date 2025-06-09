@@ -9,5 +9,6 @@
 - feat: documentation sidebar auto-generates from markdown files
 
 - fix: correct docs-browser imports for new atom paths
+- chore: add sandbox-vite Vite playground
 
 
