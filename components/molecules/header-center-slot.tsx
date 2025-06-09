@@ -7,9 +7,24 @@ import { MessageCircle, Github, Database } from "lucide-react";
 export default function HeaderCenterSlot() {
   return (
     <div className="flex items-center gap-6 text-white">
-      <MessageCircle className="hover:text-zinc-400 cursor-pointer" size={20} />
-      <Github className="hover:text-zinc-400 cursor-pointer" size={20} />
-      <Database className="hover:text-zinc-400 cursor-pointer" size={20} />
+      <MessageCircle
+        aria-label="chat"
+        className="hover:text-zinc-400 cursor-pointer"
+        size={20}
+      />
+      <a
+        href="https://github.com/genr8"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="github"
+      >
+        <Github className="hover:text-zinc-400 cursor-pointer" size={20} />
+      </a>
+      <Database
+        aria-label="db"
+        className="hover:text-zinc-400 cursor-pointer"
+        size={20}
+      />
     </div>
   );
 }

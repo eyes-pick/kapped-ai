@@ -134,4 +134,4 @@ function SidebarProvider({
   );
 }
 
-export { SidebarProvider, useSidebar };
+export { SidebarProvider, useSidebar, SIDEBAR_WIDTH_MOBILE };
