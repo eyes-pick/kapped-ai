@@ -10,7 +10,7 @@ describe('Button', () => {
 
     it('handles click events', async () => {
         const user = userEvent.setup()
-        const handleClick = jest.fn()
+        const handleClick = vi.fn()
         render(<Button onClick={handleClick}>Click me</Button>)
 
         await user.click(screen.getByRole('button', { name: /click me/i }))
