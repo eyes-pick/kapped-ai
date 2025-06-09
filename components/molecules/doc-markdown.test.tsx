@@ -3,6 +3,9 @@ import { DocMarkdown } from "./doc-markdown";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { vi } from "vitest";
+import { promises as fs } from "fs";
+import path from "path";
+import { GET as docRoute } from "@/app/docs/[file]/route";
 
 // 🧪 Mock global fetch
 global.fetch = vi.fn();
@@ -44,6 +47,31 @@ describe("DocMarkdown", () => {
     });
 
     expect(global.fetch).toHaveBeenCalledWith("/docs/test.md");
+  });
+
+  it("renders content fetched via dynamic route", async () => {
+    const tempPath = path.join(process.cwd(), "docs/route-test.md");
+    await fs.writeFile(tempPath, "# Route Test");
+
+    vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Route Test</h1>");
+    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce("<h1>Route Test</h1>");
+
+    vi.mocked(global.fetch).mockImplementationOnce(() =>
+      Promise.resolve(
+        docRoute(new Request("http://localhost"), {
+          params: { file: "route-test.md" },
+        }),
+      ),
+    );
+
+    render(<DocMarkdown file="route-test.md" />);
+
+    await waitFor(() => {
+      const content = document.querySelector(".prose");
+      expect(content?.innerHTML).toBe("<h1>Route Test</h1>");
+    });
+
+    await fs.unlink(tempPath);
   });
 
   it("handles fetch error gracefully", async () => {
