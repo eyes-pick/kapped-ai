@@ -1,13 +1,13 @@
 import HeaderShell from "@/components/header/header-shell";
-import HeaderLeftSlot from "@/components/header/header-left-slot";
-import HeaderCenterSlot from "@/components/header/header-center-slot";
-import HeaderRightSlot from "@/components/header/header-right-slot";
-import { SidebarProvider, Sidebar } from "@/components/ui/sidebar";
+import HeaderLeftSlot from "@/components/molecules/header-left-slot";
+import HeaderCenterSlot from "@/components/molecules/header-center-slot";
+import HeaderRightSlot from "@/components/molecules/header-right-slot";
+import { SidebarProvider, Sidebar } from "@/components/organisms/sidebar";
 import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
-} from "@/components/ui/resizable";
+} from "@/components/atoms/resizable";
 
 export default function SandboxPage() {
   return (

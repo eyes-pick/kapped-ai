@@ -44,7 +44,8 @@ Getting started is easy and exciting! Just follow these steps:
 
 - `components/` — All React components, organized by feature and type.
 - `app/` — Next.js app directory, including pages and layouts.
-- `docs/` — Project documentation for users and developers.
+- `docs/` — Project documentation for users and developers. Any new markdown file
+  added here automatically appears in the documentation sidebar via `getDocs()`.
 - `hooks/` — Custom React hooks.
 - `lib/` — Utility functions and shared logic.
 - `public/` — Static assets such as images and icons.

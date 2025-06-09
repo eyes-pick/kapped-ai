@@ -3,6 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import { RotateCcw, Play } from "lucide-react";
 
+/**
+ * Interactive slot containing test and lint buttons.
+ */
 export default function HeaderLeftSlot() {
   const [open, setOpen] = useState(false);
   const [loadingTest, setLoadingTest] = useState(false);
