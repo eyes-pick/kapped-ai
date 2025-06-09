@@ -15,6 +15,7 @@
     "clean": "rimraf ./node_modules ./package-lock.json ./.next",
     "update": "npm update",
     "clear:prompt": "npx tsx scripts/clear-prompt.ts",
+    "validate:templates": "zod-cli validate lib/templates.json",
     "sandbox": "concurrently \"next dev -p 3001\" \"npm --prefix ./sandbox-vite run dev\"",
     "typecheck": "tsc --noEmit",
     "setup:build": "npm run lint && npm run typecheck && npm run test && npm run build",
@@ -103,6 +104,7 @@
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.2",
-    "whatwg-fetch": "^3.6.20"
+    "whatwg-fetch": "^3.6.20",
+    "zod-cli": "^1.0.0"
   }
 }
