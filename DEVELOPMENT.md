@@ -40,11 +40,11 @@ Welcome to the Kapped codebase! Here’s a quick guide to help new and beginner 
 
 1. Navigate to the companion project:
    ```bash
-   cd ../sandbox-vite
+   cd sandbox-vite
    npm run build
    ```
    The static files will be output to `dist/`.
-2. Copy the contents of `dist/` into `public/sandbox/` of this repo so Next.js can serve them.
+2. Copy the `dist/` directory into `public/sandbox-vite/` so Next.js can serve the files from `/sandbox-vite/dist/`.
 
 ---
 
