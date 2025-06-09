@@ -1,7 +1,3 @@
-import tailwindcss from 'tailwindcss';
-
-const config = {
-  plugins: [tailwindcss],
+module.exports = {
+  plugins: [require('tailwindcss')],
 };
-
-export default config;
