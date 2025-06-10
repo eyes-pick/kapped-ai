@@ -1,6 +1,6 @@
 # Kapped: Browser AI Execution Sandbox & No-Code Platform
 
-Kapped is a browser-based AI execution sandbox and no-code platform. It empowers users to design, execute, and manage AI-driven workflows and automations directly from their web browser—without writing a single line of code.
+Kapped is a browser-based AI execution sandbox and no-code platform. It empowers users to design, execute, and manage AI-driven Applications and software directly from their web browser—without writing a single line of code.
 
 ## Documentation Index
 
@@ -36,11 +36,3 @@ npm run lint
 npm run typecheck
 npm test
 ```
-
-If `lib/templates.json` exists, also validate it with:
-
-```bash
-npm run validate:templates
-```
-
-
