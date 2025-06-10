@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  kapped-ai-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  vite-sandbox:
+    build:
+      context: ./sandbox-vite
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    volumes:
+      - ./sandbox-vite:/app
+      - /app/node_modules
