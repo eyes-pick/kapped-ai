@@ -1,6 +1,6 @@
 # Kapped Developer Notes
 
-Welcome to the Kapped Developer Notes! We’re absolutely thrilled to have you here, whether you’re a seasoned developer, a curious newcomer, or a passionate contributor. This document is your comprehensive guide to understanding, building, and extending Kapped—the browser-based AI execution sandbox and no-code platform that’s changing the way people interact with artificial intelligence.
+Welcome to the Kapped Developer Notes! We’re absolutely thrilled to have you here, whether you’re a seasoned developer, a curious newcomer, or a passionate contributor. This document is your comprehensive guide to understanding, building, and extending Kapped—the browser-based AI no-code platform that’s changing the way people develop websites and applications.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ Welcome to the Kapped Developer Notes! We’re absolutely thrilled to have you h
 
 ## Project Overview
 
-Kapped is a modern, modular web application built with Next.js and React. Our mission is to make AI accessible, safe, and fun for everyone. The codebase is thoughtfully organized for extensibility and maintainability, with a strong emphasis on reusable components and clear separation of concerns.
+Kapped is a modern, modular web application built with Next.js and React. Our mission is to make AI Controlled Enviroments running VITE/REACT HMR dev-enviroments that you can prompt any app idea and continously prommpt for itterations. The codebase is thoughtfully organized for extensibility and maintainability, with a strong emphasis on reusable components and clear separation of concerns.
 
 ## Development Environment Setup
 
@@ -26,7 +26,7 @@ Getting started is easy and exciting! Just follow these steps:
 1. **Clone the Repository:**
    ```powershell
    git clone <repository-url>
-   cd kapped
+   cd kapped-ai
    ```
 2. **Install Dependencies:**
    ```powershell
