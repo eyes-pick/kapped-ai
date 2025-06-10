@@ -1,4 +1,4 @@
-import KapsulesHero from "@/components/organisms/kapsules-hero";
+import KapsulesHero from "@/components/hero/kapsules-hero";
 
 export default function HomePage() {
   return <KapsulesHero />;

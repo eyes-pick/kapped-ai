@@ -1,13 +1,13 @@
 import HeaderShell from "@/components/header/header-shell";
-import HeaderLeftSlotProjects from "@/components/molecules/header-left-slot-projects";
-import HeaderCenterSlotProjects from "@/components/molecules/header-center-slot-projects";
-import HeaderRightSlotProjects from "@/components/molecules/header-right-slot-projects";
+import HeaderLeftSlotProjects from "@/components/header/header-left-slot-projects";
+import HeaderCenterSlotProjects from "@/components/header/header-center-slot-projects";
+import HeaderRightSlotProjects from "@/components/header/header-right-slot-projects";
 import { getSandboxUrl } from "@/lib/sandbox-url";
 import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
-} from "@/components/atoms/resizable";
+} from "@/components/ui/resizable";
 
 /**
  * Sandbox UI embedding the Vite application.

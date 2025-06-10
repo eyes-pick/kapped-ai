@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import HeaderCenterSlotProjects from "@/components/molecules/header-center-slot-projects";
+import HeaderCenterSlotProjects from "@/components/header/header-center-slot-projects";
 
 describe("HeaderCenterSlot", () => {
   it("renders all center slot icons with accessible labels", () => {

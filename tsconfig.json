@@ -25,7 +25,7 @@
       "@components/*": ["components/*"],
       "@atoms/*": ["components/atoms/*"],
       "@molecules/*": ["components/molecules/*"],
-      "@organisms/*": ["components/organisms/*"],
+      "@organisms/*": ["components/hero/*"],
       "@genr8/testing-sandbox": ["__mocks__/genr8-testing-sandbox.d.ts"] // ✅ Resolved to match correct declaration file
     }
   },

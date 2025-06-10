@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { DocMarkdown } from "./doc-markdown";
+import { DocMarkdown } from "../docs/doc-markdown";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { vi } from "vitest";

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import HeaderRightSlotProjects from "@/components/molecules/header-right-slot-projects";
+import HeaderRightSlotProjects from "@/components/header/header-right-slot-projects";
 
 describe("HeaderRightSlot", () => {
   it("toggles preview icon on click", async () => {
