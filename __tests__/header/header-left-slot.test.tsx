@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import HeaderLeftSlot from "@/components/molecules/header-left-slot";
+import HeaderLeftSlotProjects from "@/components/molecules/header-left-slot-projects";
 
 describe("HeaderLeftSlot", () => {
   it("toggles dropdown open and closed via button and Escape key", async () => {
     const user = userEvent.setup();
 
-    render(<HeaderLeftSlot />);
+    render(<HeaderLeftSlotProjects />);
     const toggleButton = screen.getByLabelText(/open menu/i);
 
     // Initially closed
@@ -26,7 +26,7 @@ describe("HeaderLeftSlot", () => {
 
     render(
       <div>
-        <HeaderLeftSlot />
+        <HeaderLeftSlotProjects />
         <button>Outside</button>
       </div>,
     );

@@ -1,8 +1,8 @@
 // app/dashboard/page.tsx –  **default: Server Component**
 import HeaderShell from "@/components/header/header-shell";
-import HeaderLeftSlot from "@/components/molecules/header-left-slot";
-import HeaderCenterSlot from "@/components/molecules/header-center-slot";
-import HeaderRightSlot from "@/components/molecules/header-right-slot";
+import HeaderLeftSlot from "@/components/molecules/header-left-slot-projects";
+import HeaderCenterSlot from "@/components/molecules/header-center-slot-projects";
+import HeaderRightSlot from "@/components/molecules/header-right-slot-projects";
 
 export default function DashboardPage() {
   return (

@@ -6,7 +6,7 @@ import { RotateCcw, Play } from "lucide-react";
 /**
  * Interactive slot containing test and lint buttons.
  */
-export default function HeaderLeftSlot() {
+export default function HeaderLeftSlotProjects() {
   const [open, setOpen] = useState(false);
   const [loadingTest, setLoadingTest] = useState(false);
   const [loadingLint, setLoadingLint] = useState(false);

@@ -1,7 +1,7 @@
 import HeaderShell from "@/components/header/header-shell";
-import HeaderLeftSlot from "@/components/molecules/header-left-slot";
-import HeaderCenterSlot from "@/components/molecules/header-center-slot";
-import HeaderRightSlot from "@/components/molecules/header-right-slot";
+import HeaderLeftSlotProjects from "@/components/molecules/header-left-slot-projects";
+import HeaderCenterSlotProjects from "@/components/molecules/header-center-slot-projects";
+import HeaderRightSlotProjects from "@/components/molecules/header-right-slot-projects";
 import { getSandboxUrl } from "@/lib/sandbox-url";
 import {
   ResizablePanelGroup,
@@ -17,9 +17,9 @@ export default function SandboxPage() {
   return (
     <div className="flex flex-col h-screen w-screen bg-zinc-950">
       <HeaderShell
-        leftSlot={<HeaderLeftSlot />}
-        centerSlot={<HeaderCenterSlot />}
-        rightSlot={<HeaderRightSlot />}
+        leftSlot={<HeaderLeftSlotProjects />}
+        centerSlot={<HeaderCenterSlotProjects />}
+        rightSlot={<HeaderRightSlotProjects />}
       />
       <ResizablePanelGroup direction="horizontal" className="flex-1 min-h-0">
         <ResizablePanel

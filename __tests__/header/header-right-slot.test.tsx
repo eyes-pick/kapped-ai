@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import HeaderRightSlot from "@/components/molecules/header-right-slot";
+import HeaderRightSlotProjects from "@/components/molecules/header-right-slot-projects";
 
 describe("HeaderRightSlot", () => {
   it("toggles preview icon on click", async () => {
     const user = userEvent.setup();
-    render(<HeaderRightSlot />);
+    render(<HeaderRightSlotProjects />);
 
     const toggleButton = screen.getByLabelText(/preview/i);
     // Initial state should show layout icon
@@ -21,7 +21,7 @@ describe("HeaderRightSlot", () => {
   });
 
   it("links to the Docs page", () => {
-    render(<HeaderRightSlot />);
+    render(<HeaderRightSlotProjects />);
 
     const docsLink = screen.getByRole("link", { name: /docs/i });
     expect(docsLink).toHaveAttribute("href", "/docs");

@@ -6,7 +6,7 @@ import Link from "next/link";
 /**
  * Right-aligned header utilities slot.
  */
-export default function HeaderRightSlot() {
+export default function HeaderRightSlotProjects() {
   const [showPreview, setShowPreview] = useState(true);
   return (
     <div className="flex items-center gap-4">
