@@ -1,7 +1,7 @@
-import HeaderShell from "@/components/header/header-shell";
-import HeaderLeftSlotProjects from "@/components/header/header-left-slot-projects";
-import HeaderCenterSlotProjects from "@/components/header/header-center-slot-projects";
-import HeaderRightSlotProjects from "@/components/header/header-right-slot-projects";
+import HeaderShell from "@/components/projects-page/header/header-shell";
+import HeaderLeftSlotProjects from "@/components/projects-page/header/header-left-slot-projects";
+import HeaderCenterSlotProjects from "@/components/projects-page/header/header-center-slot-projects";
+import HeaderRightSlotProjects from "@/components/projects-page/header/header-right-slot-projects";
 import { getSandboxUrl } from "@/lib/sandbox-url";
 import {
   ResizablePanelGroup,

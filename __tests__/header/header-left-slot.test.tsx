@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import HeaderLeftSlotProjects from "@/components/header/header-left-slot-projects";
+import HeaderLeftSlotProjects from "@/components/projects-page/header/header-left-slot-projects";
 
 describe("HeaderLeftSlot", () => {
   it("toggles dropdown open and closed via button and Escape key", async () => {

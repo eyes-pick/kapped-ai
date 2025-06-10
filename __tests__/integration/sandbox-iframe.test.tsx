@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
-import SandboxPage from "@/app/sandbox/page";
+import SandboxPage from "@/app/projects/page";
 import { createSandbox } from "@genr8/testing-sandbox";
 import { createServer } from "http";
 import { mkdtempSync, writeFileSync, readFileSync, rmSync } from "fs";
