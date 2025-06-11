@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Logo from "@/components/ui/logo";
+import HeaderLogo from "@/components/ui/header-logo";
 import { Button } from "@/components/ui/button";
 import {
     Menubar,
@@ -15,7 +15,7 @@ const NavBarHeader = () => {
     return (
         <header className="w-full py-2 px-4 bg-neutral-900 text-white flex items-center justify-between shadow-md">
             <div className="flex items-center gap-4">
-                <Logo />
+                <HeaderLogo />
                 <Menubar className="bg-transparent border-none shadow-none">
                     <MenubarMenu>
                         <MenubarTrigger className="text-white">Menu</MenubarTrigger>
