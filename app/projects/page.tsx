@@ -44,7 +44,7 @@ export default function SandboxPage() {
           </div>
           {/* Chat message stream */}
           <div className="grid grid-rows-1 h-auto w-full bg-zinc-900">
-            <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-scrollable grid grid-cols[repeat(3 1fr)] bg-gray-800 scroll-auto rounded-none text-black text-lg">
+            <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-scrollable grid grid-cols[repeat(3 1fr)] bg-inherit scroll-auto rounded-none text-black text-lg">
               <Card className="flex flex-1 bg-gray-600 p-1 mx-3 my-2 mb-4 border-0">
                 <div>
                   <CardHeader>
@@ -85,8 +85,8 @@ export default function SandboxPage() {
               </Menubar>
             </div>
             {/* Chat Input */}
-            <div>
-              <Textarea placeholder="Type the changes you want too make..." />
+            <div className="flex justify-center items-center mx-auto mb-2 mt-1">
+              <Textarea className="flex border-none resize-none outline-none max-w-[90%]" placeholder="Type the changes you want too make..." />
             </div>
           </div>
 
