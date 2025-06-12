@@ -11,13 +11,10 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "atoms": "@/components/atoms",
-    "molecules": "@/components/molecules",
-    "organisms": "@/components/organisms",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "components",
+    "lib": "lib",
+    "hooks": "hooks",
+    "utils": "lib/utils"
   },
   "iconLibrary": "lucide"
 }
