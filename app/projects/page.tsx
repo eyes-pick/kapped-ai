@@ -27,7 +27,7 @@ export default function SandboxPage() {
           className="bg-zinc-900 border-0 border-zinc-800"
         >
           {/* Chat UI goes here */}
-          <div className="grid grid-rows-[120px-1fr-240px] h-full w-full bg-gray-800">
+          <div className="grid grid-rows-[1fr-6fr-3fr] h-full w-full bg-gray-800">
             <div className="flex justify-center bg-inherit text-white/90 border-none my-1 mx-4 gap-x-2.5">
               <Button
                 className="w-[50%] justify-center items-center bg-gray-500 hover:bg-gray-900 my-2 text-sm">
