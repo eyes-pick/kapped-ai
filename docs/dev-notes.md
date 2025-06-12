@@ -1,126 +1,69 @@
-# Kapped Developer Notes
+🛠 Developer Notes for Kapsules by GENR8
 
-`Welcome to the Kapped Developer Notes! We’re absolutely thrilled to have you here, whether you’re a seasoned developer, a curious newcomer, or a passionate contributor. This document is your comprehensive guide to understanding, building, and extending Kapped—the browser-based AI no-code platform that’s changing the way people develop websites and applications.`
+This document tracks internal development decisions, architecture insights, and active implementation notes for building and maintaining the Kapsules platform.
 
-## Table of Contents
+⸻
 
-- [Project Overview](#project-overview)
-- [Development Environment Setup](#development-environment-setup)
-- [Project Structure](#project-structure)
-- [Key Technologies](#key-technologies)
-- [Development Workflow](#development-workflow)
-- [Testing](#testing)
-- [Code Quality](#code-quality)
-- [Deployment](#deployment)
-- [Contribution Guidelines](#contribution-guidelines)
-- [Troubleshooting](#troubleshooting)
+📦 Current Stack
+	•	Framework: Next.js (App Router)
+	•	Styling: TailwindCSS + ShadCN/UI
+	•	AI Integration: OpenAI (gpt-4o), Claude (fallback model planned)
+	•	Filesystem: In-memory + optional persistent (E2B or Supabase)
+	•	Preview: iframe sandbox with controlled context loading
+	•	State: Zustand (global), useLocalStorage for per-project state
 
----
+⸻
 
-## Project Overview
+🧱 Architecture Overview
 
-Kapped is a modern, modular web application built with Next.js and React. Our mission is to make AI Controlled Environments running VITE/REACT HMR dev-environments that you can prompt any app idea and continuously prompt for iterations. The codebase is thoughtfully organized for extensibility and maintainability, with a strong emphasis on reusable components and clear separation of concerns.
+[ Prompt Input ]
+      ↓
+[ AI Interpreter (LLM) ]
+      ↓
+[ Template Engine + File Writer ] → [ Virtual FS ] → [ Preview Sandbox ]
+                                  ↓
+                            [ Chat + Iteration Layer ]
 
-## Development Environment Setup
+	•	File writing is abstracted via a FileOrchestrator.ts
+	•	Prompt parsing → intent → scaffolds pulled from /templates/*
+	•	Preview reloads only changed modules using message passing into iframe
 
-Getting started is easy and exciting! Just follow these steps:
+⸻
 
-1. **Clone the Repository:**
-   ```powershell
-   git clone <repository-url>
-   cd kapped-ai
-   ```
-2. **Install Dependencies:**
-   ```powershell
-   npm install
-   ```
-3. **Start the Development Server:**
-   ```powershell
-   npm run dev
-   ```
-4. **Start the Sandbox Environment:**
-   Run Next.js and Vite together:
-   ```bash
-   npm run sandbox
-   ```
-   Next.js: [http://localhost:3001](http://localhost:3001)  
-   Vite: [http://localhost:5173](http://localhost:5173)
-5. **Environment Variables:**
-   - Create a `.env.local` file in the root directory for any required environment variables.
-   - Refer to `.env.example` if available.
+🔄 Change Management
+	•	AI-Generated File Changes:
+	•	Changes tracked in a change buffer before committing to FS
+	•	Rollback capability in development
+	•	User Modifications:
+	•	Eventually editable in in-app file view (planned)
+	•	Currently only modifiable via prompt interface
 
-## Project Structure
+⸻
 
-| Folder        | Purpose                                             |
-| ------------- | --------------------------------------------------- |
-| `components/` | All React components, organized by feature and type |
-| `app/`        | Next.js app directory, including pages and layouts  |
-| `docs/`       | Project documentation for users and developers      |
-| `hooks/`      | Custom React hooks                                  |
-| `lib/`        | Utility functions and shared logic                  |
-| `public/`     | Static assets such as images and icons              |
-| `scripts/`    | Automation and setup scripts                        |
+🔥 Hot Areas / Priorities
+	•	Improve AI feedback loop latency
+	•	Add diff/patch view between AI generations
+	•	Optimize iframe performance (strip unused Tailwind at build-time)
+	•	Add /.genr8 metadata dir to each project for internal use
 
-## Key Technologies
+⸻
 
-Kapped leverages the best modern web technologies:
+🧪 Experimental Ideas
+	•	Dual-mode edit interface: visual builder + code view
+	•	Voice-to-code input (using Whisper)
+	•	Add GPT function calling to isolate code logic generation
 
-- **Next.js** for server-side rendering and routing.
-- **React** for building dynamic, interactive UIs.
-- **TypeScript** for robust static typing and maintainability.
-- **ESLint** and **Prettier** for code quality and consistent formatting.
-- **PostCSS** for powerful CSS processing and customization.
+⸻
 
-## Development Workflow
+📌 Dev Checklist
+	•	AI prompt context management (per project)
+	•	Auth integration via Supabase or Clerk
+	•	Add export-to-ZIP button
+	•	Add localStorage fallback for offline builds
+	•	Expand prompt understanding with intent tree map
 
-- Use feature branches for new work: `git checkout -b feature/your-feature`
-- Write clear, descriptive commit messages following conventional commit standards.
-- Submit pull requests for review—collaboration is at the heart of Kapped!
+⸻
 
-## Testing
+Last updated: June 12, 2025
 
-- Add and run unit tests for all new features and bug fixes.
-- Use **Vitest** with **React Testing Library** for fast and reliable feedback.
-- Run tests locally before pushing changes:
-  ```bash
-  npm test && npm run lint && npm run typecheck
-  ```
-
-## Code Quality
-
-- Lint your code before committing:
-  ```powershell
-  npm run lint
-  ```
-- Follow the established code style and naming conventions.
-- Document complex logic with clear, helpful comments.
-
-## Deployment
-
-- Build the application for production:
-  ```powershell
-  npm run build
-  ```
-- Deploy using your favorite platform (Vercel, Docker, etc.).
-- Ensure all environment variables are set in the deployment environment.
-
-## Contribution Guidelines
-
-- Fork the repository and create a new branch for your changes.
-- Write concise, meaningful commit messages.
-- Make sure your code passes all tests and lints before submitting a pull request.
-- Update documentation as needed—clear docs help everyone!
-
-## Troubleshooting
-
-If you run into issues, don’t worry! Here are some tips:
-
-> **Tip:** Delete `node_modules` and reinstall dependencies if you encounter strange errors.
-
-- Double-check your environment variables.
-- Review error messages and stack traces for clues.
-- Reach out to the project maintainers or open an issue if you need help.
-
----
-
-Thank you for helping make Kapped amazing. Your contributions, questions, and ideas drive this project forward. **Let’s build something incredible together!**
+Contact: genr8.ai@gmail.com
