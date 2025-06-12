@@ -1,38 +1,80 @@
-# Kapped: Browser AI Execution Sandbox & No-Code Platform
+# 🚀 Welcome to Kapsules by GENR8
 
-Kapped is a browser-based AI execution sandbox and no-code platform. It empowers users to design, execute, and manage AI-driven Applications and software directly from their web browser—without writing a single line of code.
+**Kapsules** is an AI-powered no-code platform that turns your ideas into fully functional web applications—just by describing them in plain English.
 
-## Documentation Index
+Whether you're a founder, creative, or entrepreneur, you can launch full-stack apps without writing code or hiring developers.
 
-- [Key Features](docs/key-features.md)
-- [Future SDK Integrations](docs/future-integrations.md)
-- [Getting Started](docs/getting-started.md)
-- [User Guide](docs/user-guide.md)
-- [Developer Notes](docs/dev-notes.md)
-- [UI/UX Development Pipeline](docs/uiux-pipeline.md)
-- [Project Tasks & Roadmap](docs/tasks.md)
-- [Example Use Cases](docs/use-cases.md)
-- [Contributing](docs/contributing.md)
-- [License](docs/license.md)
+---
 
-For questions, support, or feature requests, please open an issue or contact the maintainers.
+## 🌐 What is Kapsules?
 
-## Sandbox Development
+Kapsules interprets your natural language prompt and generates a complete, working web application. It builds the file structure, writes the code, and displays a live, interactive preview—all in real time.
 
-Start both the Next.js and Vite development servers with:
+**Example Prompt**:
 
-```bash
-npm run sandbox
-```
+> *"Create a task management app with login and dark mode."*
 
-This script launches Next.js on [http://localhost:3001](http://localhost:3001) and the Vite sandbox on [http://localhost:5173](http://localhost:5173).
+Within seconds, Kapsules generates:
 
-## Verification Checks
+* Auth scaffolding
+* Dashboard layout
+* Theme toggler
+* Live preview
 
-Before submitting a pull request, run these commands to catch build errors and bugs:
+---
 
-```bash
-npm run lint
-npm run typecheck
-npm test
-```
+## 🧠 How It Works
+
+1. **User prompt** → Describe what you want
+2. **AI interprets** → Identifies intent, structure, components
+3. **Codebase generated** → React + Tailwind + backend scaffolding
+4. **Preview renders** → View your app in a live sandbox
+5. **Chat continues** → Iterate and improve via AI
+
+---
+
+## ⚙️ What You Can Build
+
+| App Type             | Example Features                            |
+| -------------------- | ------------------------------------------- |
+| Business Dashboards  | Auth, tables, analytics, sidebars           |
+| Landing Pages        | CTAs, forms, animations                     |
+| E-commerce Frontends | Product listings, carts, Stripe integration |
+| Portfolio Sites      | Sections, themes, custom routing            |
+| Custom SaaS Tools    | CRUD apps, user roles, notifications        |
+
+---
+
+## 🧱 Getting Started
+
+1. Go to: [**kapsules.genr8.dev**](https://kapsules.genr8.dev)
+2. Enter a prompt describing your app
+3. Wait a few seconds
+4. View and interact with your live app
+5. Use the AI chat to update features, add components, or change styling
+
+---
+
+## 🧪 Tech Behind the Scenes
+
+* **Frontend**: React + Tailwind + ShadCN/UI
+* **AI Engine**: LLMs for intent → file generation
+* **Rendering**: Iframe sandbox with isolated environment
+* **Backend (optional)**: Supabase, API generation support
+* **Project templates**: App structure adapts to your use-case
+
+---
+
+## 🔍 Learn More
+
+* [Product Docs](https://kapsules.genr8.dev/docs)
+* [Prompt Library](https://kapsules.genr8.dev/library)
+* [Templates](https://kapsules.genr8.dev/templates)
+
+---
+
+## 💬 Join the Community
+
+* 💬 Discord: [Join GENR8 Community](https://discord.gg/genr8)
+* 🐦 Twitter: [@genr8\_dev](https://twitter.com/genr8_dev)
+* 📧 Email: [genr8.ai@gmail.com](mailto:genr8.ai@gmail.com)
