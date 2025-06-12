@@ -4,19 +4,14 @@ import HeaderShell from "@/components/projects-page/header/header-shell";
 import HeaderLeftSlotProjects from "@/components/projects-page/header/header-left-slot-projects";
 import HeaderCenterSlotProjects from "@/components/projects-page/header/header-center-slot-projects";
 import HeaderRightSlotProjects from "@/components/projects-page/header/header-right-slot-projects";
-import { getSandboxUrl } from "@/lib/sandbox-url";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
-import { Button } from "@components/ui/button";
-import { Card, CardHeader, CardContent, CardAction, CardDescription, } from "@components/ui/card";
-import { Avatar, AvatarFallback } from "@components/ui/avatar";
-import { Textarea } from "@components/ui/textarea";
-import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from "@components/ui/menubar";
+import ChatPanel from "@/components/projects-page/chat/ChatPanel";
+import SandboxPanel from "@/components/projects-page/preview/SandboxPanel";
 
 /**
  * Sandbox UI embedding the Vite application.
  */
 export default function SandboxPage() {
-  const iframeSrc = getSandboxUrl();
   return (
     <div className="flex flex-col h-screen w-screen bg-zinc-950">
       <HeaderShell
@@ -31,6 +26,7 @@ export default function SandboxPage() {
           maxSize={75}
           className="bg-zinc-900 border-0 border-zinc-800"
         >
+
           {/* Chat UI goes here */}
           <div className="flex justify-center bg-inherit text-white/90 border-none my-1 mx-4 gap-x-2.5 max-h-[60px]">
             <Button
@@ -88,15 +84,7 @@ export default function SandboxPage() {
         </ResizablePanel>
         <ResizableHandle withHandle className="border-none stroke-0 outline-0" />
         <ResizablePanel defaultSize={80} minSize={40} className="bg-zinc-950">
-          <div className="h-full w-full flex items-center justify-center">
-            <iframe
-              title="Sandboxed Vite App"
-              src={iframeSrc}
-              sandbox="allow-scripts allow-same-origin"
-              className="w-full h-full border-0 rounded-t-none rounded-b-lg shadow-xl bg-zinc-950"
-              style={{ minHeight: "80vh" }}
-            />
-          </div>
+          <SandboxPanel />
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>
