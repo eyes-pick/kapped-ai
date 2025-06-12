@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderShell from "@/components/projects-page/header/header-shell";
 import HeaderLeftSlotProjects from "@/components/projects-page/header/header-left-slot-projects";
 import HeaderCenterSlotProjects from "@/components/projects-page/header/header-center-slot-projects";
