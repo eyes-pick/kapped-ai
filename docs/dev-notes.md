@@ -1,4 +1,4 @@
-🛠 Developer Notes for Kapsules by GENR8
+# 🛠 Developer Notes for Kapsules by GENR8
 
 This document tracks internal development decisions, architecture insights, and active implementation notes for building and maintaining the Kapsules platform.
 
