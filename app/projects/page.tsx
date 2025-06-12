@@ -73,7 +73,7 @@ export default function SandboxPage() {
                   </MenubarContent>
                 </MenubarMenu>
               </Menubar>
-              <Textarea placeholder="Type the changes you want too make..." />
+              <Textarea placeholder="Type the changes you want to make..." />
               <Menubar>
                 <MenubarMenu>
                   <Button>Files</Button>
