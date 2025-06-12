@@ -1,20 +1,27 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { DocMarkdown } from "../docs/doc-markdown";
 import { marked } from "marked";
-import DOMPurify from "dompurify";
 import { vi } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
 import { GET as docRoute } from "@/app/docs/[file]/route";
 import { NextRequest } from "next/server";
+import * as DOMPurify from "dompurify";
 
 // 🧪 Mock global fetch
 global.fetch = vi.fn();
 
 // 🧪 Mock the marked and DOMPurify modules
-vi.mock("marked", () => ({
-  marked: { parse: vi.fn() },
-}));
+vi.mock("marked", async () => {
+  const actual = await import("marked");
+  return {
+    marked: {
+      parse: vi.fn(),
+      Renderer: actual.marked.Renderer,
+      setOptions: vi.fn(),
+    },
+  };
+});
 
 vi.mock("dompurify", () => ({
   default: { sanitize: vi.fn() },
@@ -37,7 +44,7 @@ describe("DocMarkdown", () => {
 
     // Mock marked.parse and DOMPurify.sanitize
     vi.mocked(marked.parse).mockResolvedValueOnce(mockParsedHtml);
-    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce(mockSanitizedHtml);
+    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce(mockSanitizedHtml);
 
     render(<DocMarkdown file="test.md" />);
 
@@ -55,7 +62,7 @@ describe("DocMarkdown", () => {
     await fs.writeFile(tempPath, "# Route Test");
 
     vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Route Test</h1>");
-    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce("<h1>Route Test</h1>");
+    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce("<h1>Route Test</h1>");
 
     vi.mocked(global.fetch).mockImplementationOnce(() =>
       Promise.resolve(
