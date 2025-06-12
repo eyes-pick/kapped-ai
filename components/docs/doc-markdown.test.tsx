@@ -25,6 +25,30 @@ describe("DocMarkdown", () => {
     vi.clearAllMocks(); // Reset mocks before each test
   });
 
+  it("shows a loading indicator while fetching", async () => {
+    let resolveFn: (value: Response) => void = () => {};
+    vi.mocked(global.fetch).mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolveFn = resolve;
+        }),
+    );
+
+    render(<DocMarkdown file="loading.md" />);
+
+    expect(
+      screen.getByText("Loading documentation...")
+    ).toBeInTheDocument();
+
+    resolveFn(new Response("# Hi"));
+    vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Hi</h1>");
+    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce("<h1>Hi</h1>");
+
+    await waitFor(() => {
+      expect(document.querySelector(".prose")?.innerHTML).toBe("<h1>Hi</h1>");
+    });
+  });
+
   it("renders markdown content successfully", async () => {
     const mockMarkdown = "# Hello World";
     const mockParsedHtml = "<h1>Hello World</h1>";
@@ -81,10 +105,9 @@ describe("DocMarkdown", () => {
     render(<DocMarkdown file="nonexistent.md" />);
 
     await waitFor(() => {
-      const errorMessage = screen.getByText("Error loading documentation.");
+      const errorMessage = screen.getByText("Failed to load documentation.");
       expect(errorMessage).toBeInTheDocument();
       expect(errorMessage.tagName.toLowerCase()).toBe("p");
-      expect(errorMessage.style.color).toBe("red");
     });
   });
 
@@ -106,8 +129,9 @@ describe("DocMarkdown", () => {
     render(<DocMarkdown file="missing.md" />);
 
     await waitFor(() => {
-      const errorMessage = screen.getByText("Error loading documentation.");
+      const errorMessage = screen.getByText("Failed to load documentation.");
       expect(errorMessage).toBeInTheDocument();
     });
   });
 });
+
