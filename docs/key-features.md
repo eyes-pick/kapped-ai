@@ -1,26 +1,67 @@
-# Key Features
+# ✨ Key Features of Kapsules by GENR8
 
-Welcome to the world of Kapped, where innovation meets accessibility!
-
-Kapped is packed with an impressive suite of features designed to empower users of all backgrounds to harness the power of artificial intelligence—without writing a single line of code.
-
-## Highlights
-
-- **No-Code Workflow Builder**  
-  Build sophisticated AI workflows, data pipelines, and automations with an intuitive drag-and-drop interface. No programming knowledge required—just your creativity and vision!
-- **AI Execution Sandbox**  
-  Safely experiment, test, and iterate on AI models and scripts in a secure, isolated browser environment.
-- **Component Library**  
-  Rapid prototyping and deployment with a vast library of reusable UI and logic components.
-- **Real-Time Collaboration**  
-  Collaborate seamlessly with your team! Share workflows, exchange ideas, and see results instantly.
-- **Custom Integrations**  
-  Effortlessly connect to external APIs, databases, and cloud services.
-- **User Management**  
-  Robust, role-based access control and secure authentication.
-- **Extensible Architecture**  
-  Easily add new AI models, data sources, and custom modules to tailor Kapped to your unique needs.
+Kapsules transforms ideas into working full-stack applications using AI and live code generation. Below is a list of core features that make the platform powerful, flexible, and accessible to users of all skill levels.
 
 ---
 
-Kapped is more than a tool—it's your launchpad for AI-powered innovation. **Dive in and discover what you can create!**
+## 🧠 AI-Powered Prompt-to-App Workflow
+
+* Converts plain English prompts into real, functional code
+* Understands app requirements, component hierarchy, and design intent
+* Iteratively updates app structure based on follow-up prompts
+
+## ⚡ Instant Codebase Generation
+
+* Generates React components, pages, routes, and Tailwind styles
+* Prepares a complete file tree for export or deployment
+* Modularized file structure for easy expansion and AI updates
+
+## 🖥️ Live Preview in Sandbox
+
+* Real-time rendering of the generated app in an isolated iframe
+* Interactive testing environment without needing local setup
+* Reloads specific files/modules without full refresh
+
+## 🔁 Iterative AI Chat Interface
+
+* Embedded chat interface alongside the preview
+* Supports prompt chaining for additive changes
+* Displays visual feedback for each AI change
+
+## 📦 Template-Driven Architecture
+
+* Reusable, modular templates for common app types (e.g., blog, SaaS)
+* Supports dynamic token injection into templates
+* Enables future support for custom user templates
+
+## 🔐 Secure, Client-Side Execution
+
+* Fully sandboxed iframe to prevent unsafe script execution
+* Isolated build environment for each preview session
+* Uses virtual FS or in-memory project state
+
+## 🌍 Multi-Model AI Support *(Planned)*
+
+* Switch between OpenAI, Claude, and Gemini
+* Dynamic fallback and model override by user
+* Model configuration stored per project
+
+## 💾 Export and Deployment *(Upcoming)*
+
+* One-click export to ZIP of full codebase
+* Planned integration with Vercel and Netlify
+* Persistent cloud builds via Supabase or E2B
+
+## 🧩 Future-Proof Extensibility
+
+* Component injection via prompt or UI
+* Planned plugin marketplace
+* Metadata support with `/.genr8` structure for internal tooling
+
+---
+
+Kapsules is continuously evolving—designed to bring powerful, developer-level capabilities to anyone with an idea.
+
+For the latest roadmap, see [Future Integrations](./kapsules-future-integrations).
+
+Contact: [genr8.ai@gmail.com](mailto:genr8.ai@gmail.com)
