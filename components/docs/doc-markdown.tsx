@@ -12,11 +12,21 @@ interface DocMarkdownProps {
  */
 export function DocMarkdown({ file }: DocMarkdownProps) {
   const [html, setHtml] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    if (!file) return;
+    if (!file) {
+      setHtml("");
+      setError(null);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
     fetch(`/docs/${encodeURIComponent(file)}`)
       .then((res) => {
-        if (!res.ok) throw new Error("404");
+        if (!res.ok) throw new Error(String(res.status));
         return res.text();
       })
       .then(async (md: string) => {
@@ -25,9 +35,20 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
         setHtml(sanitized);
       })
       .catch(() => {
-        setHtml('<p style="color:red">Error loading documentation.</p>');
+        setError("Failed to load documentation.");
+        setHtml("");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [file]);
+
+  if (loading) {
+    return <p className="text-muted">Loading documentation...</p>;
+  }
+  if (error) {
+    return <p className="text-red-500">{error}</p>;
+  }
 
   return (
     <div
@@ -36,3 +57,4 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
     />
   );
 }
+
