@@ -28,7 +28,7 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
     setError(null);
     fetch(`/docs/${encodeURIComponent(file)}`)
       .then((res) => {
-        if (!res.ok) throw new Error(String(res.status));
+        if (!res.ok) throw new Error("Failed to load documentation.");
         return res.text();
       })
       .then(async (md: string) => {
@@ -49,21 +49,20 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
         const parsed = await marked.parse(md, { renderer });
         const sanitized = DOMPurify.sanitize(parsed);
         setHtml(sanitized);
+        setLoading(false);
       })
-      .catch(() => {
-        setError("Failed to load documentation.");
+      .catch((err) => {
         setHtml("");
-      })
-      .finally(() => {
+        setError(err.message || "Failed to load documentation.");
         setLoading(false);
       });
   }, [file]);
 
   if (loading) {
-    return <p className="text-muted">Loading documentation...</p>;
+    return <p className="prose text-muted-foreground">Loading documentation...</p>;
   }
   if (error) {
-    return <p className="text-red-500">{error}</p>;
+    return <p className="prose text-red-500">{error}</p>;
   }
 
   return (

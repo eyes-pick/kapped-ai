@@ -33,7 +33,7 @@ describe("DocMarkdown", () => {
   });
 
   it("shows a loading indicator while fetching", async () => {
-    let resolveFn: (value: Response) => void = () => {};
+    let resolveFn: (value: Response) => void = () => { };
     vi.mocked(global.fetch).mockImplementationOnce(
       () =>
         new Promise((resolve) => {
@@ -49,7 +49,7 @@ describe("DocMarkdown", () => {
 
     resolveFn(new Response("# Hi"));
     vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Hi</h1>");
-    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce("<h1>Hi</h1>");
+    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce("<h1>Hi</h1>");
 
     await waitFor(() => {
       expect(document.querySelector(".prose")?.innerHTML).toBe("<h1>Hi</h1>");
@@ -112,7 +112,7 @@ describe("DocMarkdown", () => {
     render(<DocMarkdown file="nonexistent.md" />);
 
     await waitFor(() => {
-      const errorMessage = screen.getByText("Failed to load documentation.");
+      const errorMessage = screen.getByText("404");
       expect(errorMessage).toBeInTheDocument();
       expect(errorMessage.tagName.toLowerCase()).toBe("p");
     });
