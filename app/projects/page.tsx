@@ -43,7 +43,7 @@ export default function SandboxPage() {
             </Button>
           </div>
           <div className="grid grid-rows-1 h-auto w-full bg-gray-800">
-            <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-scrollable grid grid-cols[repeat(3 1fr)] bg-gray-800 scroll-auto rounded-none text-black text-lg">
+            <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-y-auto grid grid-cols-3 bg-gray-800 scroll-auto rounded-none text-black text-lg">
               <Card className="flex flex-1 bg-gray-600 p-1 mx-3 my-1 mb-4 border-0">
                 <CardHeader>
                   <Avatar>
