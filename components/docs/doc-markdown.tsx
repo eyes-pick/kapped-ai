@@ -44,7 +44,7 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
           } else {
             highlighted = hljs.highlightAuto(text).value;
           }
-          return `<pre><code class="hljs language-${lang ?? ''}">${highlighted}</code></pre>`;
+          return `<pre><code class="hljs language-${lang ?? ""}">${highlighted}</code></pre>`;
         };
         const parsed = await marked.parse(md, { renderer });
         const sanitized = DOMPurify.sanitize(parsed);
@@ -59,7 +59,9 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
   }, [file]);
 
   if (loading) {
-    return <p className="prose text-muted-foreground">Loading documentation...</p>;
+    return (
+      <p className="prose text-muted-foreground">Loading documentation...</p>
+    );
   }
   if (error) {
     return <p className="prose text-red-500">{error}</p>;
@@ -72,4 +74,3 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
     />
   );
 }
-

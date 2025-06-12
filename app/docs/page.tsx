@@ -30,5 +30,5 @@ export default function DocsIndexPage() {
   if (loading) return <p className="text-muted">Loading documentation...</p>;
   if (error) return <p className="text-red-500">Failed to load docs.</p>;
 
-  return <DocsBrowser docs={docs.map(doc => ({ ...doc, content: "" }))} />;
+  return <DocsBrowser docs={docs.map((doc) => ({ ...doc, content: "" }))} />;
 }

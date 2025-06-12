@@ -4,7 +4,8 @@ describe("getSandboxUrl", () => {
   const originalEnv = process.env.NODE_ENV;
 
   afterEach(() => {
-    (process.env as unknown as Record<string, string>).NODE_ENV = originalEnv as string;
+    (process.env as unknown as Record<string, string>).NODE_ENV =
+      originalEnv as string;
   });
 
   it("returns local server url in development", () => {

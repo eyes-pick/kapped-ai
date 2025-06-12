@@ -10,13 +10,15 @@ describe("HeaderRightSlot", () => {
     const toggleButton = screen.getByLabelText(/preview/i);
     // Initial state should show layout icon
     expect(
-      document.querySelector("svg.lucide-layout-panel-top")
+      document.querySelector("svg.lucide-layout-panel-top"),
     ).toBeInTheDocument();
 
     await user.click(toggleButton);
 
     // After click, code icon should appear and layout icon disappear
-    expect(document.querySelector("svg.lucide-layout-panel-top")).not.toBeInTheDocument();
+    expect(
+      document.querySelector("svg.lucide-layout-panel-top"),
+    ).not.toBeInTheDocument();
     expect(document.querySelector("svg.lucide-code-xml")).toBeInTheDocument();
   });
 

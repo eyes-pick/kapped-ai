@@ -1,5 +1,9 @@
 import HeaderShell from "@/components/projects-page/header/header-shell";
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "@/components/ui/resizable";
 import { ReactNode } from "react";
 import clsx from "clsx";
 
@@ -30,7 +34,9 @@ export default function ProjectsLayoutShell({
   headerRightSlot,
 }: ProjectsLayoutShellProps) {
   return (
-    <div className={clsx("flex flex-col h-screen w-screen bg-zinc-950", className)}>
+    <div
+      className={clsx("flex flex-col h-screen w-screen bg-zinc-950", className)}
+    >
       <HeaderShell
         leftSlot={headerLeftSlot}
         centerSlot={headerCenterSlot}
@@ -43,23 +49,36 @@ export default function ProjectsLayoutShell({
           maxSize={75}
           className="bg-zinc-900 border-0 border-none"
         >
-          {/* Chat Header*/}
-          <div id="chat-header" className="flex justify-center bg-inherit text-white/90 border-none my-1 mx-4 gap-x-2.5 max-h-[60px]">
-            {chatHeader}
+          <div className={clsx("h-full w-full", className)}>
+            {/* Chat Header*/}
+            <div
+              id="chat-header"
+              className="mx-auto p-1 w-[80%]"
+            >
+              {chatHeader}
+            </div>
+            {/* Chat message stream */}
+            <div
+              id="message-stream"
+              className="justify-center"
+            >
+              {chatStream}
+            </div>
+            {/* Chat toolbar */}
+            <div
+              id="message-input"
+              className="flex justify-end h-full w-full bg-zinc-900"
+            >
+              {chatToolbar}
+              {/* Chat Input */}
+              {chatInput}
+            </div>
           </div>
-          {/* Chat message stream */}
-          <div id="message-stream" className="grid grid-rows-1 h-auto w-full bg-zinc-900">
-            {chatStream}
-          </div>
-          {/* Chat toolbar */}
-          <div id="message-input" className="h-full w-full bg-zinc-900">
-            {chatToolbar}
-            {/* Chat Input */}
-            {chatInput}
-          </div>
-
         </ResizablePanel>
-        <ResizableHandle withHandle className="border-none stroke-0 outline-0" />
+        <ResizableHandle
+          withHandle
+          className="border-none stroke-0 outline-0"
+        />
         <ResizablePanel defaultSize={80} minSize={40} className="bg-zinc-950">
           <div className="h-full w-full flex items-center justify-center">
             {sandboxIframe}

@@ -33,7 +33,7 @@ describe("DocMarkdown", () => {
   });
 
   it("shows a loading indicator while fetching", async () => {
-    let resolveFn: (value: Response) => void = () => { };
+    let resolveFn: (value: Response) => void = () => {};
     vi.mocked(global.fetch).mockImplementationOnce(
       () =>
         new Promise((resolve) => {
@@ -43,9 +43,7 @@ describe("DocMarkdown", () => {
 
     render(<DocMarkdown file="loading.md" />);
 
-    expect(
-      screen.getByText("Loading documentation...")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Loading documentation...")).toBeInTheDocument();
 
     resolveFn(new Response("# Hi"));
     vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Hi</h1>");
@@ -68,7 +66,9 @@ describe("DocMarkdown", () => {
 
     // Mock marked.parse and DOMPurify.sanitize
     vi.mocked(marked.parse).mockResolvedValueOnce(mockParsedHtml);
-    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce(mockSanitizedHtml);
+    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce(
+      mockSanitizedHtml,
+    );
 
     render(<DocMarkdown file="test.md" />);
 
@@ -86,7 +86,9 @@ describe("DocMarkdown", () => {
     await fs.writeFile(tempPath, "# Route Test");
 
     vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Route Test</h1>");
-    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce("<h1>Route Test</h1>");
+    vi.mocked(DOMPurify.default.sanitize).mockReturnValueOnce(
+      "<h1>Route Test</h1>",
+    );
 
     vi.mocked(global.fetch).mockImplementationOnce(() =>
       Promise.resolve(
@@ -141,4 +143,3 @@ describe("DocMarkdown", () => {
     });
   });
 });
-

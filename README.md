@@ -12,14 +12,14 @@ Kapsules interprets your natural language prompt and generates a complete, worki
 
 **Example Prompt**:
 
-> *"Create a task management app with login and dark mode."*
+> _"Create a task management app with login and dark mode."_
 
 Within seconds, Kapsules generates:
 
-* Auth scaffolding
-* Dashboard layout
-* Theme toggler
-* Live preview
+- Auth scaffolding
+- Dashboard layout
+- Theme toggler
+- Live preview
 
 ---
 
@@ -57,24 +57,24 @@ Within seconds, Kapsules generates:
 
 ## 🧪 Tech Behind the Scenes
 
-* **Frontend**: React + Tailwind + ShadCN/UI
-* **AI Engine**: LLMs for intent → file generation
-* **Rendering**: Iframe sandbox with isolated environment
-* **Backend (optional)**: Supabase, API generation support
-* **Project templates**: App structure adapts to your use-case
+- **Frontend**: React + Tailwind + ShadCN/UI
+- **AI Engine**: LLMs for intent → file generation
+- **Rendering**: Iframe sandbox with isolated environment
+- **Backend (optional)**: Supabase, API generation support
+- **Project templates**: App structure adapts to your use-case
 
 ---
 
 ## 🔍 Learn More
 
-* [Product Docs](https://kapsules.genr8.dev/docs)
-* [Prompt Library](https://kapsules.genr8.dev/library)
-* [Templates](https://kapsules.genr8.dev/templates)
+- [Product Docs](https://kapsules.genr8.dev/docs)
+- [Prompt Library](https://kapsules.genr8.dev/library)
+- [Templates](https://kapsules.genr8.dev/templates)
 
 ---
 
 ## 💬 Join the Community
 
-* 💬 Discord: [Join GENR8 Community](https://discord.gg/genr8)
-* 🐦 Twitter: [@genr8\_dev](https://twitter.com/genr8_dev)
-* 📧 Email: [genr8.ai@gmail.com](mailto:genr8.ai@gmail.com)
+- 💬 Discord: [Join GENR8 Community](https://discord.gg/genr8)
+- 🐦 Twitter: [@genr8_dev](https://twitter.com/genr8_dev)
+- 📧 Email: [genr8.ai@gmail.com](mailto:genr8.ai@gmail.com)

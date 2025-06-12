@@ -4,7 +4,7 @@ import { getDoc } from "@/lib/docs";
 export async function GET(
   _request: NextRequest,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  context: any
+  context: any,
 ) {
   try {
     const param = context.params.file;

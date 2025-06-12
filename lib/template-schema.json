@@ -5,19 +5,19 @@
     "type": "object",
     "required": ["id", "name", "entry", "port", "runtime", "dockerImage"],
     "properties": {
-      "id": {"type": "string"},
-      "name": {"type": "string"},
-      "entry": {"type": "string"},
-      "port": {"type": "integer"},
-      "runtime": {"type": "string"},
-      "dockerImage": {"type": "string"},
-      "description": {"type": "string"},
-      "icon": {"type": "string"},
+      "id": { "type": "string" },
+      "name": { "type": "string" },
+      "entry": { "type": "string" },
+      "port": { "type": "integer" },
+      "runtime": { "type": "string" },
+      "dockerImage": { "type": "string" },
+      "description": { "type": "string" },
+      "icon": { "type": "string" },
       "features": {
         "type": "array",
-        "items": {"type": "string"}
+        "items": { "type": "string" }
       },
-      "version": {"type": "string"}
+      "version": { "type": "string" }
     },
     "additionalProperties": false
   }

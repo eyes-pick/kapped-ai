@@ -22,9 +22,12 @@ vi.mock("@genr8/testing-sandbox", () => ({
   createSandbox: vi.fn(() => ({
     load: vi.fn(async () => {
       // Simulate rendered output with prose class for markdown
-      const DocsComponent =
-        (await import("../../components/docs/docs-browser.client")).default;
-      const { container } = render(<DocsComponent docs={[{ title: "Test", file: "test.md" }]} />);
+      const DocsComponent = (
+        await import("../../components/docs/docs-browser.client")
+      ).default;
+      const { container } = render(
+        <DocsComponent docs={[{ title: "Test", file: "test.md" }]} />,
+      );
       return { container };
     }),
     close: vi.fn(),

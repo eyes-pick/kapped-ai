@@ -32,7 +32,7 @@ export async function getDocs(): Promise<{ title: string; file: string }[]> {
       const title =
         firstLine.replace(/^#\s*/, "").trim() || file.replace(/\.md$/, "");
       return { title, file };
-    })
+    }),
   );
   return docs;
 }

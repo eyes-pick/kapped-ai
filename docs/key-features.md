@@ -6,57 +6,57 @@ Kapsules transforms ideas into working full-stack applications using AI and live
 
 ## 🧠 AI-Powered Prompt-to-App Workflow
 
-* Converts plain English prompts into real, functional code
-* Understands app requirements, component hierarchy, and design intent
-* Iteratively updates app structure based on follow-up prompts
+- Converts plain English prompts into real, functional code
+- Understands app requirements, component hierarchy, and design intent
+- Iteratively updates app structure based on follow-up prompts
 
 ## ⚡ Instant Codebase Generation
 
-* Generates React components, pages, routes, and Tailwind styles
-* Prepares a complete file tree for export or deployment
-* Modularized file structure for easy expansion and AI updates
+- Generates React components, pages, routes, and Tailwind styles
+- Prepares a complete file tree for export or deployment
+- Modularized file structure for easy expansion and AI updates
 
 ## 🖥️ Live Preview in Sandbox
 
-* Real-time rendering of the generated app in an isolated iframe
-* Interactive testing environment without needing local setup
-* Reloads specific files/modules without full refresh
+- Real-time rendering of the generated app in an isolated iframe
+- Interactive testing environment without needing local setup
+- Reloads specific files/modules without full refresh
 
 ## 🔁 Iterative AI Chat Interface
 
-* Embedded chat interface alongside the preview
-* Supports prompt chaining for additive changes
-* Displays visual feedback for each AI change
+- Embedded chat interface alongside the preview
+- Supports prompt chaining for additive changes
+- Displays visual feedback for each AI change
 
 ## 📦 Template-Driven Architecture
 
-* Reusable, modular templates for common app types (e.g., blog, SaaS)
-* Supports dynamic token injection into templates
-* Enables future support for custom user templates
+- Reusable, modular templates for common app types (e.g., blog, SaaS)
+- Supports dynamic token injection into templates
+- Enables future support for custom user templates
 
 ## 🔐 Secure, Client-Side Execution
 
-* Fully sandboxed iframe to prevent unsafe script execution
-* Isolated build environment for each preview session
-* Uses virtual FS or in-memory project state
+- Fully sandboxed iframe to prevent unsafe script execution
+- Isolated build environment for each preview session
+- Uses virtual FS or in-memory project state
 
-## 🌍 Multi-Model AI Support *(Planned)*
+## 🌍 Multi-Model AI Support _(Planned)_
 
-* Switch between OpenAI, Claude, and Gemini
-* Dynamic fallback and model override by user
-* Model configuration stored per project
+- Switch between OpenAI, Claude, and Gemini
+- Dynamic fallback and model override by user
+- Model configuration stored per project
 
-## 💾 Export and Deployment *(Upcoming)*
+## 💾 Export and Deployment _(Upcoming)_
 
-* One-click export to ZIP of full codebase
-* Planned integration with Vercel and Netlify
-* Persistent cloud builds via Supabase or E2B
+- One-click export to ZIP of full codebase
+- Planned integration with Vercel and Netlify
+- Persistent cloud builds via Supabase or E2B
 
 ## 🧩 Future-Proof Extensibility
 
-* Component injection via prompt or UI
-* Planned plugin marketplace
-* Metadata support with `/.genr8` structure for internal tooling
+- Component injection via prompt or UI
+- Planned plugin marketplace
+- Metadata support with `/.genr8` structure for internal tooling
 
 ---
 
