@@ -7,12 +7,13 @@ const LandingShell = ({ children }: { children: React.ReactNode }) => {
             <div className="absolute top-4 right-4 bg-neutral-900 text-white px-3 py-1 rounded-lg text-xs font-sans z-10">
                 v1.00
             </div>
-            <h1 className="text-white text-6xl md:text-7xl font-extrabold font-sans text-center my-2 tracking-tight drop-shadow-lg z-10">
-                Kapsules
-            </h1>
-            <h2 className="my-2 mb-4 text-green-100 text-base font-medium font-sans text-center z-10">
-                Powered by GENR8
+            <h2 className="my-2 mb-4 text-gray-400 text-base font-medium font-sans text-center z-10">
+                Kapsules powered by GENR8
             </h2>
+            <h1 className="text-gray-350 text-4xl md:text-5xl font-extrabold font-sans text-center my-2 mb-12 tracking-tight drop-shadow-lg z-10">
+                Build Frontend Applications
+                <br /> In Seconds Not Months!
+            </h1>
             {children}
         </div>
     );
