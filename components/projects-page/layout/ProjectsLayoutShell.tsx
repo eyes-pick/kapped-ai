@@ -1,5 +1,3 @@
-"use client";
-
 import HeaderShell from "@/components/projects-page/header/header-shell";
 import HeaderLeftSlotProjects from "@/components/projects-page/header/header-left-slot-projects";
 import HeaderCenterSlotProjects from "@/components/projects-page/header/header-center-slot-projects";
@@ -7,15 +5,12 @@ import HeaderRightSlotProjects from "@/components/projects-page/header/header-ri
 import { getSandboxUrl } from "@/lib/sandbox-url";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardAction, CardDescription, } from "@/components/ui/card";
+import { Card, CardHeader, CardContent, CardAction, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
 import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from "@/components/ui/menubar";
 
-/**
- * Sandbox UI embedding the Vite application.
- */
-export default function SandboxPage() {
+export default function ProjectsLayoutShell() {
   const iframeSrc = getSandboxUrl();
   return (
     <div className="flex flex-col h-screen w-screen bg-zinc-950">
@@ -31,19 +26,16 @@ export default function SandboxPage() {
           maxSize={75}
           className="bg-zinc-900 border-0 border-zinc-800"
         >
-          {/* Chat UI goes here */}
           <div className="flex justify-center bg-inherit text-white/90 border-none my-1 mx-4 gap-x-2.5 max-h-[60px]">
-            <Button
-              className="w-[50%] justify-center items-center bg-gray-500 hover:bg-gray-900 my-2 text-sm">
+            <Button className="w-[50%] justify-center items-center bg-gray-500 hover:bg-gray-900 my-2 text-sm">
               Chat
             </Button>
-            <Button
-              className="w-[50%] justify-center items-center bg-gray-500 hover:bg-gray-900 my-2 text-sm">
+            <Button className="w-[50%] justify-center items-center bg-gray-500 hover:bg-gray-900 my-2 text-sm">
               Code
             </Button>
           </div>
           <div className="grid grid-rows-1 h-auto w-full bg-gray-800">
-            <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-scrollable grid grid-cols[repeat(3 1fr)] bg-gray-800 scroll-auto rounded-none text-black text-lg">
+            <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-scrollable grid grid-cols[repeat(3_1fr)] bg-gray-800 scroll-auto rounded-none text-black text-lg">
               <Card className="flex flex-1 bg-gray-600 p-1 mx-3 my-1 mb-4 border-0">
                 <CardHeader>
                   <Avatar>
@@ -52,9 +44,7 @@ export default function SandboxPage() {
                   <CardAction>View Commit</CardAction>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>
-                    *AI RESPONSE GOES HERE*
-                  </CardDescription>
+                  <CardDescription>*AI RESPONSE GOES HERE*</CardDescription>
                 </CardContent>
               </Card>
             </div>
@@ -73,7 +63,7 @@ export default function SandboxPage() {
                   </MenubarContent>
                 </MenubarMenu>
               </Menubar>
-              <Textarea placeholder="Type the changes you want too make..." />
+              <Textarea placeholder="Type the changes you want to make..." />
               <Menubar>
                 <MenubarMenu>
                   <Button>Files</Button>
@@ -84,7 +74,6 @@ export default function SandboxPage() {
               </Menubar>
             </div>
           </div>
-          {/* Chat messages and input */}
         </ResizablePanel>
         <ResizableHandle withHandle className="border-none stroke-0 outline-0" />
         <ResizablePanel defaultSize={80} minSize={40} className="bg-zinc-950">
