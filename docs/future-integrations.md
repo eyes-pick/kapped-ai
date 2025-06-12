@@ -1,24 +1,49 @@
-# Future SDK Integrations
+🔌 Future Integrations for Kapsules by GENR8
 
-The future of Kapped is incredibly bright! We are committed to making Kapped the most versatile and powerful no-code AI platform available.
+This document outlines planned and proposed integrations that will expand the functionality and ecosystem of Kapsules, enabling developers, teams, and non-technical users to build more powerful, connected applications.
 
-Our roadmap includes seamless integration with the world’s leading AI and interpreter SDKs, ensuring you always have access to the latest and greatest technology.
+⸻
 
-## Coming Soon
+✅ Confirmed Integrations
 
-- **OpenAI SDK**  
-  Unlock the full potential of GPT-4, GPT-4o, and future OpenAI models for text, code, and multimodal tasks. Effortlessly select models, manage API keys, and fine-tune advanced parameters—all within Kapped’s intuitive workflow builder.
-- **E2B Interpreter**  
-  Run Python and other languages securely in your browser! The E2B Interpreter brings advanced scripting, data processing, and code execution to your fingertips, all within a safe sandboxed environment.
-- **Anthropic Claude SDK**  
-  Harness the power of Claude for safe, high-quality conversational AI and document analysis. Kapped will make it easy to integrate and experiment with these cutting-edge models.
-- **Perplexity API**  
-  Supercharge your research and knowledge workflows with direct access to Perplexity’s advanced search and answer engine. Summarize, analyze, and discover like never before!
-- **Google Gemini SDK**  
-  Step into the future with Gemini’s multimodal AI capabilities—text, image, audio, and advanced reasoning—all seamlessly integrated into your Kapped projects.
+Integration	Description	ETA
+Supabase	Built-in auth, database, and API scaffolding	In Progress
+Vercel Deploy	One-click deploy from sandbox to production	Planned
+OpenAI & Claude	Multi-model prompt support and fallback logic	Planned
+ShadCN/UI Themes	Dynamic theme switching + component injection	In Progress
+NextAuth.js	Out-of-the-box authentication strategies	Planned
 
-> All integrations will be modular, user-friendly, and packed with configuration options, usage tracking, and robust security controls.
 
----
+⸻
 
-Stay tuned—Kapped is evolving fast, and you won’t want to miss what’s next!
+🧪 Experimental Ideas
+
+Integration	Purpose
+Stripe	Add payment flows and checkout to generated apps
+Notion	Fetch Notion content and auto-generate site/blog structure
+Zapier / Make	Trigger workflows based on user app events
+LangChain / Agentic AI	Let Kapsules run agents inside user-generated apps
+Whisper / Audio Input	Voice-driven prompt input and app control
+
+
+⸻
+
+🌐 Web Ecosystem Goals
+	•	Plugin Marketplace: Extend functionality via community plugins
+	•	Custom Component Registry: Reusable components you can inject into any app
+	•	Live Database Editor: Visual UI for editing app DBs generated from AI templates
+	•	OAuth Provider Packs: Easily scaffold login flows for Google, GitHub, Discord, etc.
+	•	Realtime Collaboration: Multi-user editing and sandboxing support
+
+⸻
+
+🧩 Open to Suggestions
+
+We’re building this in public and actively collecting feedback. Join the community and suggest features or integrations:
+	•	Submit an Idea
+	•	Join Discord
+	•	Follow Development
+
+⸻
+
+Built for scale. Powered by AI. Designed for everyone.
