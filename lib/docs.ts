@@ -52,3 +52,5 @@ export async function getDoc(file: string): Promise<string> {
   const docPath = path.join(process.cwd(), "docs", file);
   return fs.readFile(docPath, "utf8");
 }
+
+// No error here, file is correct.

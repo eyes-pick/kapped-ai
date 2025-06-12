@@ -3,5 +3,5 @@ import ProjectsLayoutShell from "@/components/projects-page/layout/ProjectsLayou
 
 export default function SandboxPage() {
   return <ProjectsLayoutShell />;
+}
 
-  

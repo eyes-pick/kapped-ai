@@ -49,13 +49,12 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
         const parsed = await marked.parse(md, { renderer });
         const sanitized = DOMPurify.sanitize(parsed);
         setHtml(sanitized);
+        setLoading(false); // Moved here, after setHtml
       })
       .catch(() => {
         setError("Failed to load documentation.");
         setHtml("");
-      })
-      .finally(() => {
-        setLoading(false);
+        setLoading(false); // Also moved here, after setHtml
       });
   }, [file]);
 

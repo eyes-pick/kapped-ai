@@ -9,4 +9,3 @@ export async function GET() {
     return NextResponse.json({ error: "Failed to load docs" }, { status: 500 });
   }
 }
-

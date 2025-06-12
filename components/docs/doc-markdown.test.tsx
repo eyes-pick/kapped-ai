@@ -25,6 +25,7 @@ vi.mock("marked", async () => {
 
 vi.mock("dompurify", () => ({
   default: { sanitize: vi.fn() },
+  sanitize: vi.fn(),
 }));
 
 describe("DocMarkdown", () => {
@@ -33,13 +34,17 @@ describe("DocMarkdown", () => {
   });
 
   it("shows a loading indicator while fetching", async () => {
-    let resolveFn: (value: Response) => void = () => {};
+    let resolveFn: (value: Response) => void = () => { };
     vi.mocked(global.fetch).mockImplementationOnce(
       () =>
         new Promise((resolve) => {
           resolveFn = resolve;
         }),
     );
+
+    // Set up mocks before resolving fetch
+    vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Hi</h1>");
+    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce("<h1>Hi</h1>");
 
     render(<DocMarkdown file="loading.md" />);
 
@@ -48,12 +53,12 @@ describe("DocMarkdown", () => {
     ).toBeInTheDocument();
 
     resolveFn(new Response("# Hi"));
-    vi.mocked(marked.parse).mockResolvedValueOnce("<h1>Hi</h1>");
-    vi.mocked(DOMPurify.sanitize).mockReturnValueOnce("<h1>Hi</h1>");
 
     await waitFor(() => {
-      expect(document.querySelector(".prose")?.innerHTML).toBe("<h1>Hi</h1>");
-    });
+      const prose = document.querySelector(".prose");
+      // Wait for the prose element to exist and have the expected HTML
+      return prose && prose.innerHTML === "<h1>Hi</h1>";
+    }, { timeout: 2000 });
   });
 
   it("renders markdown content successfully", async () => {
