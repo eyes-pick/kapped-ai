@@ -22,6 +22,10 @@ export function DocMarkdown({ file }: DocMarkdownProps) {
         return res.text();
       })
       .then(async (md: string) => {
+        marked.setOptions({
+          gfm: true,
+          breaks: true,
+        });
         const renderer = new marked.Renderer();
         renderer.code = ({ text, lang }: { text: string; lang?: string }) => {
           let highlighted = text;

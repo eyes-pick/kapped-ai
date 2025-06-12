@@ -112,6 +112,48 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+/* GFM and Markdown custom styles */
+.prose ul.task-list,
+.prose ol.task-list {
+  list-style: none;
+  padding-left: 0;
+}
+.prose li.task-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.25em;
+}
+.prose input[type="checkbox"] {
+  accent-color: #38bdf8; /* Tailwind sky-400 */
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  border-radius: 0.25em;
+  border: 1px solid #64748b; /* Tailwind zinc-400 */
+}
+.prose del {
+  color: #f87171; /* Tailwind red-400 */
+  text-decoration: line-through;
+}
+.prose .callout {
+  border-left: 4px solid #38bdf8;
+  background: #0f172a;
+  color: #bae6fd;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 0.5em;
+  font-style: italic;
+}
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.prose th, .prose td {
+  border: 1px solid #334155; /* Tailwind zinc-700 */
+  padding: 0.5em 1em;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
