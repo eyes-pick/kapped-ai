@@ -29,9 +29,9 @@ export default function SandboxPage() {
           defaultSize={40}
           minSize={30}
           maxSize={75}
-          className="bg-zinc-900 border-0 border-zinc-800"
+          className="bg-zinc-900 border-0 border-none"
         >
-          {/* Chat UI goes here */}
+          {/* Chat Header*/}
           <div className="flex justify-center bg-inherit text-white/90 border-none my-1 mx-4 gap-x-2.5 max-h-[60px]">
             <Button
               className="w-[50%] justify-center items-center bg-gray-500 hover:bg-gray-900 my-2 text-sm">
@@ -42,28 +42,38 @@ export default function SandboxPage() {
               Code
             </Button>
           </div>
-          <div className="grid grid-rows-1 h-auto w-full bg-gray-800">
+          {/* Chat message stream */}
+          <div className="grid grid-rows-1 h-auto w-full bg-zinc-900">
             <div className="h-full w-full max-h-[300px] min-h-[250px] overflow-scrollable grid grid-cols[repeat(3 1fr)] bg-gray-800 scroll-auto rounded-none text-black text-lg">
-              <Card className="flex flex-1 bg-gray-600 p-1 mx-3 my-1 mb-4 border-0">
-                <CardHeader>
-                  <Avatar>
-                    <AvatarFallback>AI</AvatarFallback>
-                  </Avatar>
-                  <CardAction>View Commit</CardAction>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    *AI RESPONSE GOES HERE*
-                  </CardDescription>
-                </CardContent>
+              <Card className="flex flex-1 bg-gray-600 p-1 mx-3 my-2 mb-4 border-0">
+                <div>
+                  <CardHeader>
+                    <Avatar>
+                      <AvatarFallback>AI</AvatarFallback>
+                    </Avatar>
+                    <CardAction>View Commit</CardAction>
+                  </CardHeader>
+                </div>
+                <div>
+                  <CardContent>
+                    <CardDescription>
+                      *AI RESPONSE GOES HERE*
+                    </CardDescription>
+                  </CardContent>
+                </div>
               </Card>
             </div>
           </div>
-          <div className="h-full w-full bg-gray-800">
-            <div>
-              <Menubar>
+          {/* Chat toolbar */}
+          <div className="h-full w-full bg-zinc-900">
+            <div className="flex flex-1 justify-end items-center mb-1 my-4">
+              <Menubar className="bg-inherit border-none gap-4 mr-4">
                 <MenubarMenu>
-                  <MenubarTrigger>Models</MenubarTrigger>
+                  <MenubarTrigger className="py-2 text-white hover:bg-gray-700">Models</MenubarTrigger>
+                  <Button className="py-2 text-white hover:bg-gray-700">Files</Button>
+                  <Button className="py-2 text-white hover:bg-gray-700">Images</Button>
+                  <Button className="py-2 text-white hover:bg-gray-700">Gen</Button>
+                  <Button className="py-2 text-white hover:bg-gray-700">Fix</Button>
                   <MenubarContent>
                     <MenubarItem>GPT-4o</MenubarItem>
                     <MenubarItem>GPT-4o-mini</MenubarItem>
@@ -73,18 +83,13 @@ export default function SandboxPage() {
                   </MenubarContent>
                 </MenubarMenu>
               </Menubar>
+            </div>
+            {/* Chat Input */}
+            <div>
               <Textarea placeholder="Type the changes you want too make..." />
-              <Menubar>
-                <MenubarMenu>
-                  <Button>Files</Button>
-                  <Button>Images</Button>
-                  <Button>Gen</Button>
-                  <Button>Fix</Button>
-                </MenubarMenu>
-              </Menubar>
             </div>
           </div>
-          {/* Chat messages and input */}
+
         </ResizablePanel>
         <ResizableHandle withHandle className="border-none stroke-0 outline-0" />
         <ResizablePanel defaultSize={80} minSize={40} className="bg-zinc-950">
