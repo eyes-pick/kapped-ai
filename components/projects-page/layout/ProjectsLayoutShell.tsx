@@ -49,28 +49,18 @@ export default function ProjectsLayoutShell({
           maxSize={75}
           className="bg-zinc-900 border-0 border-none"
         >
-          <div className={clsx("h-full w-full", className)}>
+          <div className={clsx("h-full w-full flex flex-col", className)}>
             {/* Chat Header*/}
-            <div
-              id="chat-header"
-              className="mx-auto p-1 w-[80%]"
-            >
+            <div id="chat-header" className="mx-auto p-1 w-[80%]">
               {chatHeader}
             </div>
             {/* Chat message stream */}
-            <div
-              id="message-stream"
-              className="justify-self-start w-[80%] h-auto"
-            >
+            <div id="message-stream" className="justify-self-start w-[80%] h-auto flex-1 overflow-y-auto">
               {chatStream}
             </div>
-            {/* Chat toolbar */}
-            <div
-              id="message-input"
-              className="flex  w-full flex-col justify-self-center justify-center bg-zinc-950"
-            >
+            {/* Chat toolbar and input fixed to bottom */}
+            <div id="message-input" className="w-full flex flex-col bg-zinc-900 sticky bottom-0 z-10">
               {chatToolbar}
-              {/* Chat Input */}
               {chatInput}
             </div>
           </div>
