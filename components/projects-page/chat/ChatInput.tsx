@@ -11,13 +11,22 @@ export default function ChatInput() {
   const handleSend = async () => {
     if (!text.trim()) return;
     addPrompt(projectId, text);
-    await fetch("/api/chat", {
+    const response = await fetch("/api/chat/stream", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: text, context: getContext(projectId) }),
+      body: JSON.stringify({ prompt: text, context: getContext(projectId), projectId }),
     }).catch(() => {
       /* ignore network errors for now */
     });
+    if (response && response.body) {
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      // Drain streamed response once for demo purposes
+      await reader.read().then(({ value }) => {
+        if (value) console.log(decoder.decode(value));
+      });
+      reader.releaseLock();
+    }
     setText("");
   };
 
