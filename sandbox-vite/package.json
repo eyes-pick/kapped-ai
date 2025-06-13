@@ -1,8 +1,0 @@
-{
-  "name": "sandbox-vite",
-  "private": true,
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build"
-  }
-}
