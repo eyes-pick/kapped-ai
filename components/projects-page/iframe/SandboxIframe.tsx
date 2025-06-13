@@ -1,8 +1,12 @@
 "use client";
 import { getSandboxUrl } from "@/lib/sandbox-url";
 
-export default function SandboxIframe() {
-  const iframeSrc = getSandboxUrl();
+interface SandboxIframeProps {
+  src?: string;
+}
+
+export default function SandboxIframe({ src }: SandboxIframeProps) {
+  const iframeSrc = src || getSandboxUrl();
   return (
     <>
       <iframe
