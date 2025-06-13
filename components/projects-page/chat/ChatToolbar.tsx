@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ChatToolbar() {
   return (
-    <div className="flex flex-1 justify-end items-center mb-1 my-4">
+    <div className="flex flex-1 justify-center items-center mb-1 my-4">
       <Menubar className="bg-inherit border-none gap-4 mr-4">
         <MenubarMenu>
           <MenubarTrigger className="py-2 text-white hover:bg-gray-700">

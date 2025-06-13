@@ -60,14 +60,14 @@ export default function ProjectsLayoutShell({
             {/* Chat message stream */}
             <div
               id="message-stream"
-              className="justify-center"
+              className="justify-self-start w-[80%] h-auto"
             >
               {chatStream}
             </div>
             {/* Chat toolbar */}
             <div
               id="message-input"
-              className="flex justify-end h-full w-full bg-zinc-900"
+              className="flex  w-full flex-col justify-self-center justify-center bg-zinc-950"
             >
               {chatToolbar}
               {/* Chat Input */}
