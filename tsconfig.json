@@ -23,9 +23,6 @@
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["components/*"],
-      "@atoms/*": ["components/atoms/*"],
-      "@molecules/*": ["components/molecules/*"],
-      "@organisms/*": ["components/landing-page/*"],
       "@genr8/testing-sandbox": ["__mocks__/genr8-testing-sandbox.d.ts"] // ✅ Resolved to match correct declaration file
     }
   },
