@@ -8,4 +8,4 @@ RUN if [ -f package-lock.json ]; then npm ci; \
     else npm install; fi
 COPY . .
 EXPOSE 5173
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "dev", "--", "--host", "--preview"]
