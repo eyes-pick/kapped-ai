@@ -19,7 +19,9 @@ import { join } from "path";
 
 vi.mock("@genr8/testing-sandbox", () => ({
   createSandbox: vi.fn(() => ({
-    load: vi.fn(async () => ({ container: render(<SandboxPage />).container })),
+    load: vi.fn(async () => ({
+      container: render(await SandboxPage({ params: { id: "test-project" } })).container,
+    })),
     close: vi.fn(),
   })),
 }));

@@ -1,5 +1,3 @@
-"use client";
-
 import ProjectsLayoutShell from "@/components/projects-page/layout/ProjectsLayoutShell";
 import HeaderLeftSlotProjects from "@/components/projects-page/header/header-left-slot-projects";
 import HeaderCenterSlotProjects from "@/components/projects-page/header/header-center-slot-projects";
@@ -9,8 +7,21 @@ import ChatStream from "@/components/projects-page/chat/ChatStream";
 import ChatToolbar from "@/components/projects-page/chat/ChatToolbar";
 import ChatInput from "@/components/projects-page/chat/ChatInput";
 import SandboxIframe from "@/components/projects-page/iframe/SandboxIframe";
+import { kvGet } from "@/lib/cloudflare-storage";
 
-export default function SandboxPage() {
+interface PageProps {
+  params: { id: string };
+}
+
+export default async function SandboxPage({ params }: PageProps) {
+  const userId = "demo-user";
+  let buildKey: string | null = null;
+  try {
+    buildKey = await kvGet(`project:${userId}:${params.id}`);
+  } catch {
+    buildKey = null;
+  }
+
   return (
     <ProjectsLayoutShell
       headerLeftSlot={<HeaderLeftSlotProjects />}
@@ -20,7 +31,7 @@ export default function SandboxPage() {
       chatStream={<ChatStream />}
       chatToolbar={<ChatToolbar />}
       chatInput={<ChatInput />}
-      sandboxIframe={<SandboxIframe />}
+      sandboxIframe={<SandboxIframe src={buildKey ?? undefined} />}
     />
   );
 }
