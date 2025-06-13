@@ -14,7 +14,7 @@ export default function ChatToolbar() {
     <div className="flex flex-1 justify-center items-center mb-1 my-4">
       <Menubar className="bg-inherit border-none gap-9 mr-4">
         <MenubarMenu>
-          <MenubarTrigger className="py-2 text-white hover:bg-gray-700">
+          <MenubarTrigger className="py-2 mb-3 text-white hover:bg-gray-700">
             Models
           </MenubarTrigger>
           <Button className="py-2 mb-3 text-white hover:bg-gray-700">Files</Button>
