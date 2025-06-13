@@ -65,4 +65,24 @@ Go to: https://kapsules.genr8.dev
 
 ⸻
 
+🔐 Authentication Flow
+• Users sign up or log in at `/auth/signup` and `/auth/login`
+• Credentials are posted to `/api/auth/[...nextauth]`
+• Successful login sets a session cookie and redirects to `/projects/[id]`
+
+🔄 Dynamic Project Routes
+• Each project has its own URL like `/projects/my-project`
+• The `[id]` segment loads components and chat for that project
+
+☁️ Cloudflare Storage
+• User and session data persist in a Cloudflare KV store
+• Keys follow `users:{email}` and `sessions:{token}` naming
+
+🛠️ Local Build
+• Run `npm run build` to compile the Next.js app
+• Run `./vite-template/compile_page.sh` to build the Vite sandbox
+• Set `NODE_ENV=development` for local testing or `production` for final builds
+
+⸻
+
 Need help? Contact us at genr8.ai@gmail.com
