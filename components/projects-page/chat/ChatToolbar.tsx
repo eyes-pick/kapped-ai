@@ -9,6 +9,23 @@ import {
 } from "@/components/ui/menubar";
 import { Button } from "@/components/ui/button";
 
+/** Handlers for toolbar actions */
+function openFilePicker() {
+  console.log("open file picker");
+}
+
+function uploadImage() {
+  console.log("upload image");
+}
+
+function generateCode() {
+  console.log("generate code");
+}
+
+function runFix() {
+  console.log("run fix");
+}
+
 export default function ChatToolbar() {
   return (
     <div className="flex flex-1 justify-center items-center mb-1 my-4">
@@ -17,10 +34,30 @@ export default function ChatToolbar() {
           <MenubarTrigger className="py-2 mb-3 text-white hover:bg-gray-700">
             Models
           </MenubarTrigger>
-          <Button className="py-2 mb-3 text-white hover:bg-gray-700">Files</Button>
-          <Button className="py-2 mb-3 text-white hover:bg-gray-700">Images</Button>
-          <Button className="py-2 mb-3 text-white hover:bg-gray-700">Gen</Button>
-          <Button className="py-2 mb-3 text-white hover:bg-gray-700">Fix</Button>
+          <Button
+            className="py-2 mb-3 text-white hover:bg-gray-700"
+            onClick={openFilePicker}
+          >
+            Files
+          </Button>
+          <Button
+            className="py-2 mb-3 text-white hover:bg-gray-700"
+            onClick={uploadImage}
+          >
+            Images
+          </Button>
+          <Button
+            className="py-2 mb-3 text-white hover:bg-gray-700"
+            onClick={generateCode}
+          >
+            Gen
+          </Button>
+          <Button
+            className="py-2 mb-3 text-white hover:bg-gray-700"
+            onClick={runFix}
+          >
+            Fix
+          </Button>
           <MenubarContent>
             <MenubarItem>GPT-4o</MenubarItem>
             <MenubarItem>GPT-4o-mini</MenubarItem>

@@ -18,6 +18,17 @@ export default function ChatInput() {
     }).catch(() => {
       /* ignore network errors for now */
     });
+
+    if (typeof window !== "undefined" && "EventSource" in window) {
+      const source = new EventSource(`/api/chat/stream?projectId=${projectId}`);
+      source.onmessage = (e) => {
+        console.log("stream", e.data);
+      };
+      source.onerror = () => {
+        source.close();
+      };
+    }
+
     setText("");
   };
 
