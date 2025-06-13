@@ -25,7 +25,7 @@ const NavBarHeader = () => {
                 <Link href="/">Home</Link>
               </MenubarItem>
               <MenubarItem asChild>
-                <Link href="/projects">Projects</Link>
+                <Link href="/projects/default">Projects</Link>
               </MenubarItem>
               <MenubarItem asChild>
                 <Link href="/docs">Docs</Link>

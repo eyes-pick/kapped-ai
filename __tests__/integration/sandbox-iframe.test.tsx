@@ -1,6 +1,16 @@
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
-import SandboxPage from "@/app/projects/page";
+import SandboxPage from "@/app/projects/[id]/page";
+
+vi.mock("next/navigation", async () => {
+  const actual = await vi.importActual<typeof import("next/navigation")>(
+    "next/navigation",
+  );
+  return {
+    ...actual,
+    useParams: () => ({ id: "test-project" }),
+  };
+});
 import { createSandbox } from "@genr8/testing-sandbox";
 import { createServer } from "http";
 import { mkdtempSync, writeFileSync, readFileSync, rmSync } from "fs";

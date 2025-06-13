@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { addPrompt, getContext } from "@/lib/context-manager";
 
 export default function ChatInput() {
   const [text, setText] = useState("");
-  const projectId = "default";
+  const params = useParams<{ id?: string }>();
+  const projectId = typeof params.id === "string" ? params.id : "default";
 
   const handleSend = async () => {
     if (!text.trim()) return;
