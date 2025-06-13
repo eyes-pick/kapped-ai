@@ -15,7 +15,7 @@ describe("getSandboxUrl", () => {
 
   it("returns dist path in production", () => {
     (process.env as unknown as Record<string, string>).NODE_ENV = "production";
-    expect(getSandboxUrl()).toBe("/sandbox-vite/dist/index.html");
+    expect(getSandboxUrl()).toBe("/vite-template/dist/index.html");
   });
 
   it("defaults to local server for unknown env", () => {

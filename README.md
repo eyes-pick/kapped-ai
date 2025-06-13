@@ -62,6 +62,8 @@ Within seconds, Kapsules generates:
 - **Rendering**: Iframe sandbox with isolated environment
 - **Backend (optional)**: Supabase, API generation support
 - **Project templates**: App structure adapts to your use-case
+- **Vite example**: React + TypeScript template in `vite-template/` with Tailwind CSS and ShadCN/UI
+  - Build output stored in `vite-template/dist`
 
 ---
 

@@ -15,7 +15,7 @@
     "clean": "rimraf ./node_modules ./package-lock.json ./.next",
     "update": "npm update",
     "clear:prompt": "npx tsx scripts/clear-prompt.ts",
-    "sandbox": "concurrently \"next dev -p 3001\" \"npm --prefix ./sandbox-vite run dev\"",
+    "sandbox": "concurrently \"next dev -p 3001\" \"npm --prefix ./vite-template run dev\"",
     "typecheck": "tsc --noEmit",
     "setup:build": "npm run lint && npm run typecheck && npm run test && npm run build",
     "setup:dev": "npm run lint && npm run typecheck && npm run test && npm run dev",

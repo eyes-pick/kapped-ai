@@ -16,6 +16,6 @@ describe("Sandbox integration", () => {
     const sandbox = createSandbox();
     const { container } = await sandbox.load("/sandbox");
     const iframe = container.querySelector("iframe");
-    expect(iframe).toHaveAttribute("src", "/sandbox-vite/dist/index.html");
+    expect(iframe).toHaveAttribute("src", "/vite-template/dist/index.html");
   });
 });

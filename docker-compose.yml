@@ -15,7 +15,7 @@ services:
 
   vite-sandbox:
     build:
-      context: ./sandbox-vite
+      context: ./vite-template
       dockerfile: Dockerfile
     ports:
       - "5173:5173"
@@ -23,5 +23,5 @@ services:
       - NODE_ENV=development
     restart: unless-stopped
     volumes:
-      - ./sandbox-vite:/app
+      - ./vite-template:/app
       - /app/node_modules

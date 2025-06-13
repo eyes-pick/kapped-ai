@@ -24,7 +24,7 @@ describe("Sandbox iframe integration", () => {
   });
 
   it("loads iframe with production build", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "sandbox-vite-"));
+    const dir = mkdtempSync(join(tmpdir(), "vite-template-"));
     const indexPath = join(dir, "index.html");
     writeFileSync(indexPath, "<html><body>vite app</body></html>");
 

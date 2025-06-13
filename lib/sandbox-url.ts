@@ -12,6 +12,6 @@
  */
 export function getSandboxUrl(): string {
   return process.env.NODE_ENV === "production"
-    ? "/sandbox-vite/dist/index.html"
+    ? "/vite-template/dist/index.html"
     : "http://localhost:5173";
 }
