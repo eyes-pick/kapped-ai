@@ -55,7 +55,7 @@ export default function ProjectsLayoutShell({
               {chatHeader}
             </div>
             {/* Chat message stream */}
-            <div id="message-stream" className="justify-self-start w-[91%] h-auto flex-1 overflow-y-auto">
+            <div id="message-stream" className="justify-self-start w-[90%] h-auto flex-1 overflow-y-auto">
               {chatStream}
             </div>
             {/* Chat toolbar and input fixed to bottom */}
