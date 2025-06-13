@@ -36,7 +36,10 @@ const NavBarHeader = () => {
       </div>
       <div className="flex items-center gap-2">
         <Button className="size-sm variant-outline text-white bg-black hover:bg-white hover:text-black">
-          <Link href="/login">Login</Link>
+          <Link href="/auth/login">Login</Link>
+        </Button>
+        <Button className="size-sm variant-outline text-white bg-black hover:bg-white hover:text-black">
+          <Link href="/auth/signup">Sign Up</Link>
         </Button>
         <Avatar>
           <AvatarFallback className="text-black">A</AvatarFallback>
