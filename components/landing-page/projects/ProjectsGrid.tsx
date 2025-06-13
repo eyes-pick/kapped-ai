@@ -1,11 +1,44 @@
-const projects = [
-  { title: "Project Alpha", image: "", github: "#", open: "#", overview: "#" },
-  { title: "UI Builder", image: "", github: "#", open: "#", overview: "#" },
-  { title: "Gen8 Studio", image: "", github: "#", open: "#", overview: "#" },
-  { title: "DeployKit", image: "", github: "#", open: "#", overview: "#" },
-];
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
-const ProjectsGrid = () => {
+/**
+ * Describes a single project displayed in the grid.
+ */
+export interface Project {
+  title: string;
+  image?: string;
+  github?: string;
+  open?: string;
+  overview?: string;
+}
+
+interface ProjectsGridProps {
+  /**
+   * Optional list of projects. If omitted the component will try to fetch
+   * projects from `/api/projects`.
+   */
+  projects?: Project[];
+}
+
+/**
+ * Renders a grid of project cards using provided or fetched project data.
+ */
+const ProjectsGrid = ({ projects: initialProjects }: ProjectsGridProps) => {
+  const [projects, setProjects] = useState<Project[]>(initialProjects ?? []);
+
+  useEffect(() => {
+    if (initialProjects) return;
+
+    fetch("/api/projects")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data: Project[]) => setProjects(data))
+      .catch(() => {
+        // failed fetch is silently ignored
+      });
+  }, [initialProjects]);
+
+  const linkOrDisabled = (url?: string) =>
+    url && url !== "#" && url.trim().length > 0;
   return (
     <div className="mt-8 bg-white/95 backdrop-blur-lg p-6 rounded-2xl shadow-2xl max-w-4xl w-full z-10">
       <h3 className="text-xl font-bold mb-4">Your Projects</h3>
@@ -21,20 +54,35 @@ const ProjectsGrid = () => {
               </div>
               <div className="flex justify-around py-3 px-4 border-t border-neutral-800">
                 <a
-                  href={project.open}
-                  className="text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1 hover:bg-neutral-700 transition"
+                  href={linkOrDisabled(project.open) ? project.open : undefined}
+                  className={clsx(
+                    "text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1",
+                    linkOrDisabled(project.open)
+                      ? "hover:bg-neutral-700 transition"
+                      : "opacity-50 cursor-not-allowed pointer-events-none"
+                  )}
                 >
                   Open
                 </a>
                 <a
-                  href={project.github}
-                  className="text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1 hover:bg-neutral-700 transition"
+                  href={linkOrDisabled(project.github) ? project.github : undefined}
+                  className={clsx(
+                    "text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1",
+                    linkOrDisabled(project.github)
+                      ? "hover:bg-neutral-700 transition"
+                      : "opacity-50 cursor-not-allowed pointer-events-none"
+                  )}
                 >
                   GitHub
                 </a>
                 <a
-                  href={project.overview}
-                  className="text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1 hover:bg-neutral-700 transition"
+                  href={linkOrDisabled(project.overview) ? project.overview : undefined}
+                  className={clsx(
+                    "text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1",
+                    linkOrDisabled(project.overview)
+                      ? "hover:bg-neutral-700 transition"
+                      : "opacity-50 cursor-not-allowed pointer-events-none"
+                  )}
                 >
                   Overview
                 </a>
