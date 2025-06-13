@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "next/navigation";
 
 // Simple representation of a streamed chat message
 type ChatMessage = {
@@ -21,7 +22,8 @@ type ChatMessage = {
 export default function ChatStream() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const streamRef = useRef<HTMLDivElement>(null);
-  const projectId = "default";
+  const params = useParams<{ id?: string }>();
+  const projectId = typeof params.id === "string" ? params.id : "default";
 
   // Subscribe to the AI stream once on mount and append incoming messages
   useEffect(() => {
