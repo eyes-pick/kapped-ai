@@ -6,6 +6,8 @@ import {
   getSession,
 } from "@/lib/auth-store";
 
+// Session and user records are persisted to Cloudflare KV via auth-store
+
 /**
  * Combined login and session handler.
  * POST handles login or signup and sets a session cookie.
