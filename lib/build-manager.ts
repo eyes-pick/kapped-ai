@@ -19,8 +19,9 @@ export async function storeBuild(
 ): Promise<string> {
   const distDir = join(process.cwd(), "vite-template", "dist");
   const data = await readFile(join(distDir, "index.html"));
+  const buffer = data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength) as ArrayBuffer;
   const r2Key = `projects/${userId}/${projectId}/${version}.zip`;
-  await r2Put(r2Key, data);
+  await r2Put(r2Key, buffer);
   await kvPut(`project:${userId}:${projectId}`, r2Key);
   return r2Key;
 }

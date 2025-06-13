@@ -12,7 +12,10 @@ describe("cloudflare storage adapters", () => {
         delete: async (k) => void kvMap.delete(k),
       },
       r2: {
-        put: async (k, d) => void r2Map.set(k, typeof d === "string" ? new TextEncoder().encode(d).buffer : d),
+        put: async (k, d) => {
+          const buffer = typeof d === "string" ? new TextEncoder().encode(d).buffer : d;
+          void r2Map.set(k, buffer as ArrayBuffer);
+        },
         get: async (k) => r2Map.get(k) ?? null,
         delete: async (k) => void r2Map.delete(k),
       },
@@ -30,7 +33,7 @@ describe("cloudflare storage adapters", () => {
 
   it("uploads and fetches from R2", async () => {
     const data = new TextEncoder().encode("zip").buffer;
-    await r2Put("file.zip", data);
+    await r2Put("file.zip", data as ArrayBuffer);
     expect(await r2Get("file.zip")).toEqual(data);
     await r2Delete("file.zip");
     expect(await r2Get("file.zip")).toBeNull();
