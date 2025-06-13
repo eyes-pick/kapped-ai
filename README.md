@@ -65,6 +65,28 @@ Within seconds, Kapsules generates:
 - **Vite example**: React + TypeScript template in `vite-template/` with Tailwind CSS and ShadCN/UI
   - Build output stored in `vite-template/dist`
 
+## 🔐 Authentication Flow
+
+- Sign up or log in via `/auth/signup` and `/auth/login`
+- Requests hit `/api/auth/[...nextauth]` which verifies credentials
+- A session cookie is created and users are redirected to `/projects/[id]`
+
+## 🌐 Dynamic Project Routes
+
+- Each project lives at `/projects/<projectId>`
+- The `[id]` page loads the chat interface and preview for that project
+
+## ☁️ Cloudflare Storage Structure
+
+- User and session records persist in Cloudflare KV
+- Keys are stored under `users:{email}` and `sessions:{token}`
+
+## 🛠️ Build Process
+
+- Run `npm run build` to compile the main Next.js app
+- Execute `./vite-template/compile_page.sh` to build the Vite sandbox
+- Set `NODE_ENV` to `development` locally or `production` for deployment
+
 ---
 
 ## 🔍 Learn More
