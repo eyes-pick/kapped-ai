@@ -7,7 +7,7 @@ export default function ChatInput() {
     <div className="flex gap-3 pb-3 ml-1">
       <Textarea
         className=" justify-self-center border-none resize-none outline-none max-w-[90%]"
-        placeholder="Type the changes you want too make..."
+        placeholder="Type the changes you want to make..."
       />
       <Button type="submit">SEND</Button>
     </div>
