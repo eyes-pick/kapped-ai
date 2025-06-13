@@ -21,11 +21,12 @@ type ChatMessage = {
 export default function ChatStream() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const streamRef = useRef<HTMLDivElement>(null);
+  const projectId = "default";
 
   // Subscribe to the AI stream once on mount and append incoming messages
   useEffect(() => {
     if (typeof window === "undefined" || !("EventSource" in window)) return;
-    const source = new EventSource("/api/chat/stream");
+    const source = new EventSource(`/api/chat/stream?projectId=${projectId}`);
     source.onmessage = (event) => {
       setMessages((prev) => [
         ...prev,
@@ -35,7 +36,7 @@ export default function ChatStream() {
     return () => {
       source.close();
     };
-  }, []);
+  }, [projectId]);
 
   // Always scroll to the newest message when messages update
   useEffect(() => {
