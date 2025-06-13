@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderShell from "@/components/projects-page/header/header-shell";
 import {
   ResizablePanelGroup,
