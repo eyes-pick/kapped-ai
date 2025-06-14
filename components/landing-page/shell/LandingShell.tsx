@@ -1,5 +1,3 @@
-import React from "react";
-
 const LandingShell = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative w-full min-h-screen p-6 flex flex-col items-center justify-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-lime-300 to-green-900 box-border overflow-hidden">

@@ -40,7 +40,10 @@ export async function kvDelete(key: string): Promise<void> {
 }
 
 /** Upload data to Cloudflare R2. */
-export async function r2Put(key: string, data: ArrayBuffer | string): Promise<void> {
+export async function r2Put(
+  key: string,
+  data: ArrayBuffer | string,
+): Promise<void> {
   if (!r2) throw new Error("R2 adapter not configured");
   await r2.put(key, data);
 }

@@ -17,7 +17,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid prompt" }, { status: 400 });
     }
     if (build !== undefined && typeof build !== "boolean") {
-      return NextResponse.json({ error: "Invalid build flag" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid build flag" },
+        { status: 400 },
+      );
     }
 
     const userId = "demo-user";

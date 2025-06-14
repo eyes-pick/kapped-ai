@@ -2,10 +2,7 @@ import { POST } from "@/app/api/projects/route";
 import { NextRequest } from "next/server";
 import { vi } from "vitest";
 import { addPrompt } from "@/lib/context-manager";
-import {
-  setStorageAdapters,
-  kvGet,
-} from "@/lib/cloudflare-storage";
+import { setStorageAdapters, kvGet } from "@/lib/cloudflare-storage";
 import { storeBuild } from "@/lib/build-manager";
 
 vi.mock("@/lib/context-manager", () => ({
@@ -14,11 +11,13 @@ vi.mock("@/lib/context-manager", () => ({
 const kvMap = new Map<string, string>();
 
 vi.mock("@/lib/build-manager", () => ({
-  storeBuild: vi.fn(async (userId: string, projectId: string, version: string) => {
-    const key = `projects/${userId}/${projectId}/${version}.zip`;
-    kvMap.set(`project:${userId}:${projectId}`, key);
-    return key;
-  }),
+  storeBuild: vi.fn(
+    async (userId: string, projectId: string, version: string) => {
+      const key = `projects/${userId}/${projectId}/${version}.zip`;
+      kvMap.set(`project:${userId}:${projectId}`, key);
+      return key;
+    },
+  ),
 }));
 
 beforeAll(() => {

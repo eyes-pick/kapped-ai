@@ -1,4 +1,12 @@
-import { setStorageAdapters, kvPut, kvGet, kvDelete, r2Put, r2Get, r2Delete } from "@/lib/cloudflare-storage";
+import {
+  setStorageAdapters,
+  kvPut,
+  kvGet,
+  kvDelete,
+  r2Put,
+  r2Get,
+  r2Delete,
+} from "@/lib/cloudflare-storage";
 
 describe("cloudflare storage adapters", () => {
   const kvMap = new Map<string, string>();
@@ -13,7 +21,8 @@ describe("cloudflare storage adapters", () => {
       },
       r2: {
         put: async (k, d) => {
-          const buffer = typeof d === "string" ? new TextEncoder().encode(d).buffer : d;
+          const buffer =
+            typeof d === "string" ? new TextEncoder().encode(d).buffer : d;
           void r2Map.set(k, buffer as ArrayBuffer);
         },
         get: async (k) => r2Map.get(k) ?? null,

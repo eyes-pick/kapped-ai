@@ -5,9 +5,8 @@ import SearchForm from "@/components/landing-page/prompt/SearchForm";
 
 const push = vi.fn();
 vi.mock("next/navigation", async () => {
-  const actual = await vi.importActual<typeof import("next/navigation")>(
-    "next/navigation",
-  );
+  const actual =
+    await vi.importActual<typeof import("next/navigation")>("next/navigation");
   return { ...actual, useRouter: () => ({ push }) };
 });
 

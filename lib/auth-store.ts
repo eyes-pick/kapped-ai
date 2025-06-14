@@ -13,7 +13,10 @@ const USERS = new Map<string, UserRecord>();
 const SESSIONS = new Map<string, SessionRecord>();
 
 /** Create a new user record */
-export async function createUser(email: string, password: string): Promise<void> {
+export async function createUser(
+  email: string,
+  password: string,
+): Promise<void> {
   USERS.set(email, { email, password });
   try {
     await kvPut(`users:${email}`, JSON.stringify({ email, password }));

@@ -59,29 +59,35 @@ const ProjectsGrid = ({ projects: initialProjects }: ProjectsGridProps) => {
                     "text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1",
                     linkOrDisabled(project.open)
                       ? "hover:bg-neutral-700 transition"
-                      : "opacity-50 cursor-not-allowed pointer-events-none"
+                      : "opacity-50 cursor-not-allowed pointer-events-none",
                   )}
                 >
                   Open
                 </a>
                 <a
-                  href={linkOrDisabled(project.github) ? project.github : undefined}
+                  href={
+                    linkOrDisabled(project.github) ? project.github : undefined
+                  }
                   className={clsx(
                     "text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1",
                     linkOrDisabled(project.github)
                       ? "hover:bg-neutral-700 transition"
-                      : "opacity-50 cursor-not-allowed pointer-events-none"
+                      : "opacity-50 cursor-not-allowed pointer-events-none",
                   )}
                 >
                   GitHub
                 </a>
                 <a
-                  href={linkOrDisabled(project.overview) ? project.overview : undefined}
+                  href={
+                    linkOrDisabled(project.overview)
+                      ? project.overview
+                      : undefined
+                  }
                   className={clsx(
                     "text-xs font-semibold text-white bg-neutral-800 border border-neutral-700 rounded-md px-2 py-1",
                     linkOrDisabled(project.overview)
                       ? "hover:bg-neutral-700 transition"
-                      : "opacity-50 cursor-not-allowed pointer-events-none"
+                      : "opacity-50 cursor-not-allowed pointer-events-none",
                   )}
                 >
                   Overview

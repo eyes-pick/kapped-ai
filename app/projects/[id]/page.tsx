@@ -10,14 +10,15 @@ import SandboxIframe from "@/components/projects-page/iframe/SandboxIframe";
 import { kvGet } from "@/lib/cloudflare-storage";
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function SandboxPage({ params }: PageProps) {
+  const { id } = await params;
   const userId = "demo-user";
   let buildKey: string | null = null;
   try {
-    buildKey = await kvGet(`project:${userId}:${params.id}`);
+    buildKey = await kvGet(`project:${userId}:${id}`);
   } catch {
     buildKey = null;
   }

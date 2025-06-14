@@ -5,7 +5,11 @@ describe("auth flow", () => {
   it("login redirects and persists session", async () => {
     const loginReq = new NextRequest("http://localhost/api/auth", {
       method: "POST",
-      body: JSON.stringify({ email: "user@example.com", password: "pw", action: "signup" }),
+      body: JSON.stringify({
+        email: "user@example.com",
+        password: "pw",
+        action: "signup",
+      }),
       headers: { "Content-Type": "application/json" },
     });
     const loginRes = await POST(loginReq);

@@ -2,7 +2,6 @@ import { join } from "path";
 import { readFile } from "node:fs/promises";
 import { kvPut, r2Put } from "./cloudflare-storage";
 
-
 /**
  * Bundle the Vite build output and upload to R2 while
  * recording the latest build key in KV.
@@ -19,7 +18,10 @@ export async function storeBuild(
 ): Promise<string> {
   const distDir = join(process.cwd(), "vite-template", "dist");
   const data = await readFile(join(distDir, "index.html"));
-  const buffer = data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength) as ArrayBuffer;
+  const buffer = data.buffer.slice(
+    data.byteOffset,
+    data.byteOffset + data.byteLength,
+  ) as ArrayBuffer;
   const r2Key = `projects/${userId}/${projectId}/${version}.zip`;
   await r2Put(r2Key, buffer);
   await kvPut(`project:${userId}:${projectId}`, r2Key);

@@ -1,1 +1,1 @@
-export * from "./kapsules-hero";
+export { default } from "./kapsules-hero";

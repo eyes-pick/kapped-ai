@@ -23,7 +23,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
   const token = await createSession(email);
-  const res = NextResponse.redirect(new URL("/projects/default", request.url), 302);
+  const res = NextResponse.redirect(
+    new URL("/projects/default", request.url),
+    302,
+  );
   res.cookies.set("session-token", token, { path: "/" });
   return res;
 }

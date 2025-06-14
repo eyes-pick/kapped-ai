@@ -16,4 +16,3 @@ export const templateSchema = z.object({
 export const templatesSchema = z.array(templateSchema);
 
 export type Template = z.infer<typeof templateSchema>;
-export type Templates = z.infer<typeof templatesSchema>;

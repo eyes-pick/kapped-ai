@@ -34,30 +34,6 @@ export default function ChatToolbar() {
           <MenubarTrigger className="py-2 mb-3 text-white hover:bg-gray-700">
             Models
           </MenubarTrigger>
-          <Button
-            className="py-2 mb-3 text-white hover:bg-gray-700"
-            onClick={openFilePicker}
-          >
-            Files
-          </Button>
-          <Button
-            className="py-2 mb-3 text-white hover:bg-gray-700"
-            onClick={uploadImage}
-          >
-            Images
-          </Button>
-          <Button
-            className="py-2 mb-3 text-white hover:bg-gray-700"
-            onClick={generateCode}
-          >
-            Gen
-          </Button>
-          <Button
-            className="py-2 mb-3 text-white hover:bg-gray-700"
-            onClick={runFix}
-          >
-            Fix
-          </Button>
           <MenubarContent>
             <MenubarItem>GPT-4o</MenubarItem>
             <MenubarItem>GPT-4o-mini</MenubarItem>
@@ -67,6 +43,29 @@ export default function ChatToolbar() {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
+      <div className="flex gap-2">
+        <Button
+          className="py-2 text-white hover:bg-gray-700"
+          onClick={openFilePicker}
+        >
+          Files
+        </Button>
+        <Button
+          className="py-2 text-white hover:bg-gray-700"
+          onClick={uploadImage}
+        >
+          Images
+        </Button>
+        <Button
+          className="py-2 text-white hover:bg-gray-700"
+          onClick={generateCode}
+        >
+          Gen
+        </Button>
+        <Button className="py-2 text-white hover:bg-gray-700" onClick={runFix}>
+          Fix
+        </Button>
+      </div>
     </div>
   );
 }
